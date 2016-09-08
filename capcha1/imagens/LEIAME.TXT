@@ -1,0 +1,1 @@
+Neste folder estão armazenados os arquivos contendo 20 capchas complexos para teste e implementação de funçõs.
