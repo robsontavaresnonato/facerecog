@@ -1,0 +1,4 @@
+Enunciados de teste para novos membros do time de desenvolvimento.
+
+####
+Os enunciados nesta páginas servem para testar os conhecimentos de novos membros do projeto.
