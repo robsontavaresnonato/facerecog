@@ -1,0 +1,9 @@
+#####################
+##########
+#### Código experimental para reconhecimento de caracteres em CAPCHAS complexos.
+
+A ideia deste folder é armazenar códigos voltados para detecção de similaridade entre caracteres de CAPCHAS complexos.
+A ideia é testar as principais funcções de similaridade bem como testar métodos de Feature Matching and Feature Generation 
+a fim de melhorar o processo de reconhecimento de caracteres em meio a ruídos complexos.
+
+
