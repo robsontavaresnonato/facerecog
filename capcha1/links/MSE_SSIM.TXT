@@ -1,0 +1,16 @@
+
+## MSE
+
+## SSIM
+
+
+Tutorial apresentando os métodos Mean Squere Error e também Simple Similaridade
+
+#####
+
+
+No seguinte link vou vai ter acesso aos metodos MSE E O SSIM.
+
+http://www.pyimagesearch.com/2014/09/15/python-compare-two-images/
+
+
