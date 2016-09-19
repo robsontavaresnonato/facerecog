@@ -1,0 +1,10 @@
+
+
+#######################
+# Artigos relevantes em Processamento de Imagens
+
+# Feature extraction
+
+# Eliminação de Ruídos
+
+# Compactação de Imagens
