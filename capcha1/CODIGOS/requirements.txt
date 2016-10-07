@@ -1,15 +1,12 @@
 
 # lista extensa do environment, depois filtro para os que foram utilizados realmente
 ipython==5.1.0
-ipython-genutils==0.1.0
-ipywidgets==5.2.2
-jupyter-client==4.4.0
-jupyter-core==4.2.0
+jupyter==1.0.0
 matplotlib==1.5.3
-notebook==4.2.2
-numpy==1.11.1
+notebook==4.2.3
+numpy==1.11.2
 pandas==0.18.1
-Pillow==3.3.1
+Pillow==3.4.1
 pytesseract==0.1.6
 scikit-image==0.12.3
 seaborn==0.7.1
