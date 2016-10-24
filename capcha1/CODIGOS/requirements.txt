@@ -9,6 +9,7 @@ pandas==0.18.1
 Pillow==3.4.1
 pytesseract==0.1.6
 scikit-image==0.12.3
+scipy==0.18.1
 seaborn==0.7.1
 
 # the following must be installed separately
