@@ -13,6 +13,7 @@ import pytesseract
 import itertools
 import csv
 import pandas as pd
+from math import exp
 
 # plot support packages
 import matplotlib.pyplot as plt
@@ -26,7 +27,6 @@ from skimage.morphology import label
 from skimage.measure import regionprops
 from skimage.filters import rank
 from skimage.measure import compare_ssim, compare_mse
-
 
 # Funções de comparação entre imagens
 def mse(imageA, imageB):
@@ -196,3 +196,50 @@ def run_tesseract(imgs):
     for img in imgs:
         img = Image.fromarray( img )
         print( pytesseract.image_to_string( img ) )
+
+
+# Novas funções
+#  função de scoragem:
+def super_score(MSE, ISS, MSE_centro, ISS_centro):
+	# aqui vai o código
+	f =  5.979 -3.201e-05*(MSE)  -2.752*(ISS) -4.587e-05*(MSE_centro)
+	prop = exp(f)/(exp(f) + 1)
+	score = prop*100
+
+	return score # a funcao retorna um score em formato numerico de 0 a 100.
+
+
+# função de busca de letra que dá o melhor matching
+def busca_melhor(letra):
+
+	_, letters_dict = ler_letras("../letras.csv")
+	
+	score_ini = 0
+
+	for i in letters_dict:
+		
+		img = skio.imread("../" + i)
+		
+		m, s = compare_images(letra, img)
+		mc, cs = compare_images(letra[10:40,], img[10:40,])
+	 	 
+		score = super_score(m, s, mc, cs)
+		if score > score_ini: # then letra_oficial=dicionario[i]
+			rotulo_letra_maior_score = letters_dict[i]['rotulo']
+			score_ini = score
+		
+	return rotulo_letra_maior_score
+
+def quebra_captcha(captha):
+
+	a = crop_char(captcha, 0)
+	b = crop_char(captcha, 1)
+	c = crop_char(captcha, 2)
+	d = crop_char(captcha, 3)
+	e = crop_char(captcha, 4)
+	f = crop_char(captcha, 5)
+	
+	resposta = ""
+
+	for letra in [a, b, c, d, e, f]:
+		print (busca_melhor(letra))
