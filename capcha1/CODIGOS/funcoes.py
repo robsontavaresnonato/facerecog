@@ -14,6 +14,7 @@ import itertools
 import csv
 import pandas as pd
 from math import exp
+import operator
 
 # plot support packages
 import matplotlib.pyplot as plt
@@ -27,6 +28,9 @@ from skimage.morphology import label
 from skimage.measure import regionprops
 from skimage.filters import rank
 from skimage.measure import compare_ssim, compare_mse
+
+# pacotes de suporte para ML
+from sklearn.externals import joblib
 
 # Funções de comparação entre imagens
 def mse(imageA, imageB):
@@ -225,12 +229,13 @@ def busca_melhor(letra):
 	 	 
 		score = super_score(m, s, mc, cs)
 		if score > score_ini: # then letra_oficial=dicionario[i]
-			rotulo_letra_maior_score = letters_dict[i]['rotulo']
+			rotulo_letra_maior_score = str(letters_dict[i]['rotulo'])
 			score_ini = score
-		
+
 	return rotulo_letra_maior_score
 
-def quebra_captcha(captha):
+
+def quebra_captcha(captcha):
 
 	a = crop_char(captcha, 0)
 	b = crop_char(captcha, 1)
@@ -242,4 +247,42 @@ def quebra_captcha(captha):
 	resposta = ""
 
 	for letra in [a, b, c, d, e, f]:
-		print (busca_melhor(letra))
+		melhor = busca_melhor(letra)
+		resposta = resposta + melhor
+	return resposta
+
+
+def modela_captcha(captcha):
+	
+	_, letters_dict = ler_letras("../letras.csv")
+	a = crop_char(captcha, 0)
+	b = crop_char(captcha, 1)
+	c = crop_char(captcha, 2)
+	d = crop_char(captcha, 3)
+	e = crop_char(captcha, 4)
+	f = crop_char(captcha, 5)
+
+	resposta = ""
+	
+	clf = joblib.load('classifier.pkl')
+	
+	for letra in [a, b, c, d, e, f]:
+		dic = {}
+		for base in letters_dict:
+			
+			img = skio.imread("../" + base)
+
+			m, s = compare_images(letra, img)
+			cm, cs = compare_images(letra[10:40,], img[10:40,])
+
+			if ( clf.predict( [[m, s, cm, cs]] ) ):
+				if (letters_dict[base]['rotulo'] in dic):
+					dic[ letters_dict[base]['rotulo'] ] += 1
+				else:
+					dic[ letters_dict[base]['rotulo'] ] = 1
+
+		if (dic):
+			melhor = max(dic.items(), key=operator.itemgetter(1))[0]
+			resposta = resposta + melhor
+			
+	return resposta
