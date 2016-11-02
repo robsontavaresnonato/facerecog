@@ -252,7 +252,7 @@ def quebra_captcha(captcha):
 	return resposta
 
 
-def modela_captcha(captcha):
+def modela_captcha(captcha, tipo = ""):
 	
 	_, letters_dict = ler_letras("../letras.csv")
 	a = crop_char(captcha, 0)
@@ -264,7 +264,7 @@ def modela_captcha(captcha):
 
 	resposta = ""
 	
-	clf = joblib.load('classifier.pkl')
+	clf = joblib.load('classifier' + tipo + '.pkl')
 	
 	for letra in [a, b, c, d, e, f]:
 		dic = {}
@@ -284,5 +284,31 @@ def modela_captcha(captcha):
 		if (dic):
 			melhor = max(dic.items(), key=operator.itemgetter(1))[0]
 			resposta = resposta + melhor
+		else:
+			resposta = resposta + " "
+			
+	return resposta
+
+def tsrct_captcha(captcha):
+	
+	_, letters_dict = ler_letras("../letras.csv")
+	a = crop_char(captcha, 0)
+	b = crop_char(captcha, 1)
+	c = crop_char(captcha, 2)
+	d = crop_char(captcha, 3)
+	e = crop_char(captcha, 4)
+	f = crop_char(captcha, 5)
+
+	resposta = ""
+	
+	for letra in [a, b, c, d, e, f]:
+
+		img = Image.fromarray( letra )
+		tesser =  pytesseract.image_to_string( img )
+		
+		if (tesser == ""):
+			resposta = resposta + " "
+		else:
+			resposta = resposta + tesser
 			
 	return resposta
