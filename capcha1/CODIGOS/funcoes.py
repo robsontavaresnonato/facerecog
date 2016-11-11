@@ -216,60 +216,60 @@ def super_score2(MSE, ISS, MSE_centro, ISS_centro):
 	# Codigo de Categorização das Variáveis contínuas
 
     if (ISS_centro > 0 and ISS_centro <= 0.20468457663):
-        ISS_centro = 1
+        CAT_ISS_centro = 0
     elif (ISS_centro > 0.20468457663 and ISS_centro <= 0.34859473007):
-        ISS_centro = 2
+        CAT_ISS_centro = -8.073e-01
     elif (ISS_centro > 0.34859473007 and ISS_centro <= 0.384041534944):
-        ISS_centro = 3
+        CAT_ISS_centro = -2.944e-01
     elif (ISS_centro > 0.384041534944 and ISS_centro <= 0.444163127529):
-        ISS_centro = 4
+        CAT_ISS_centro = 8.699e-02
     elif (ISS_centro > 0.444163127529):
-        ISS_centro = 5
+        CAT_ISS_centro = 1.506e+00
     else:
-        ISS_centro = 0
+        CAT_ISS_centro = 0
 	     
     if (MSE_centro > 0 and MSE_centro <= 49419):
-        MSE_centro = 1
+        CAT_MSE_centro = 0
     elif (MSE_centro > 49419 and MSE_centro <= 59079.8571429):
-        MSE_centro = 2
+        CAT_MSE_centro = -8.073e-01
     elif (MSE_centro > 59079.8571429 and MSE_centro <= 65953.9285714):
-        MSE_centro = 3
+        CAT_MSE_centro = -2.944e-01
     elif (MSE_centro > 65953.9285714 and MSE_centro <= 76172.1428571):
-        MSE_centro = 4
+        CAT_MSE_centro = 8.699e-02
     elif (MSE_centro > 76172.1428571 and MSE_centro <= 85275.6428571):
-        MSE_centro = 5
+        CAT_MSE_centro = 1.506e+00
     elif (MSE_centro > 85275.6428571):
-        MSE_centro = 6
+        CAT_MSE_centro = 0
     else:
-        MSE_centro = 0
+        CAT_MSE_centro = 0
              
     if (ISS > 0 and ISS <= 0.395029459251):
-        ISS = 1
+        CAT_ISS = 0
     elif (ISS > 0.395029459251 and ISS <= 0.518022856003):
-        ISS = 2
+        CAT_ISS = -8.073e-01
     elif (ISS > 0.518022856003 and ISS <= 0.549536501022):
-        ISS = 3	
+        CAT_ISS = -2.944e-01	
     elif (ISS > 0.549536501022):
-        ISS = 4
+        CAT_ISS = 8.699e-02
     else:
-        ISS = 0
+        CAT_ISS = 0
              
     if (MSE > 0 and MSE <= 40129.7142857):
-        MSE = 1
+        CAT_MSE = 0
     elif (MSE > 40129.7142857 and MSE <= 44774.3571429):
-        MSE = 2
+        CAT_MSE = -8.073e-01
     elif (MSE > 44774.3571429 and MSE <= 47969.8714286):
-        MSE = 3
+        CAT_MSE = -2.944e-01
     elif (MSE > 47969.8714286 and MSE <= 54658.1571429):
-        MSE = 4
+        CAT_MSE = 8.699e-02
     elif (MSE > 54658.1571429 and MSE <= 60937.7142857):
-        MSE = 5
+        CAT_MSE = 1.506e+00
     elif (MSE > 60937.7142857):
-        MSE = 6
+        CAT_MSE = 0
     else:
-        MSE = 0
+        CAT_MSE = 0
 
-    f = 7.956e+00 -2.649e-05*(MSE)  -2.067e+00*(ISS) -4.498e-05*(MSE_centro) -4.587e+00*(ISS_centro)
+    f = 7.956e+00 -2.649e-05*(MSE)  -2.067e+00*(ISS) -4.498e-05*(MSE_centro) -4.587e+00*(ISS_centro) + CAT_MSE + CAT_ISS + CAT_MSE_centro + CAT_ISS_centro
     prop = exp(f)/(exp(f) + 1)
     score = prop*100
 
