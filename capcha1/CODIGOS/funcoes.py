@@ -228,7 +228,7 @@ def super_score2(MSE, ISS, MSE_centro, ISS_centro):
     else:
         CAT_ISS_centro = 0
 	     
-    if (MSE_centro > 0 and MSE_centro <= 49419):
+    """if (MSE_centro > 0 and MSE_centro <= 49419):
         CAT_MSE_centro = 0
     elif (MSE_centro > 49419 and MSE_centro <= 59079.8571429):
         CAT_MSE_centro = -8.073e-01
@@ -241,9 +241,9 @@ def super_score2(MSE, ISS, MSE_centro, ISS_centro):
     elif (MSE_centro > 85275.6428571):
         CAT_MSE_centro = 0
     else:
-        CAT_MSE_centro = 0
+        CAT_MSE_centro = 0"""
              
-    if (ISS > 0 and ISS <= 0.395029459251):
+    """if (ISS > 0 and ISS <= 0.395029459251):
         CAT_ISS = 0
     elif (ISS > 0.395029459251 and ISS <= 0.518022856003):
         CAT_ISS = -8.073e-01
@@ -252,9 +252,9 @@ def super_score2(MSE, ISS, MSE_centro, ISS_centro):
     elif (ISS > 0.549536501022):
         CAT_ISS = 8.699e-02
     else:
-        CAT_ISS = 0
+        CAT_ISS = 0"""
              
-    if (MSE > 0 and MSE <= 40129.7142857):
+    """if (MSE > 0 and MSE <= 40129.7142857):
         CAT_MSE = 0
     elif (MSE > 40129.7142857 and MSE <= 44774.3571429):
         CAT_MSE = -8.073e-01
@@ -267,9 +267,9 @@ def super_score2(MSE, ISS, MSE_centro, ISS_centro):
     elif (MSE > 60937.7142857):
         CAT_MSE = 0
     else:
-        CAT_MSE = 0
+        CAT_MSE = 0"""
 
-    f = 7.956e+00 -2.649e-05*(MSE)  -2.067e+00*(ISS) -4.498e-05*(MSE_centro) -4.587e+00*(ISS_centro) + CAT_MSE + CAT_ISS + CAT_MSE_centro + CAT_ISS_centro
+    f = 7.956e+00 -2.649e-05*(MSE)  -2.067e+00*(ISS) -4.498e-05*(MSE_centro) -4.587e+00*(ISS_centro) + CAT_ISS_centro
     prop = exp(f)/(exp(f) + 1)
     score = prop*100
 
