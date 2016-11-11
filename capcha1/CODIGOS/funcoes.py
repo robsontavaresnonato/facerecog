@@ -212,6 +212,68 @@ def super_score(MSE, ISS, MSE_centro, ISS_centro):
 
 	return score # a funcao retorna um score em formato numerico de 0 a 100.
 
+def super_score2(MSE, ISS, MSE_centro, ISS_centro):
+	# Codigo de Categorização das Variáveis contínuas
+
+    if (ISS_centro > 0 and ISS_centro <= 0.20468457663):
+        ISS_centro = 1
+    elif (ISS_centro > 0.20468457663 and ISS_centro <= 0.34859473007):
+        ISS_centro = 2
+    elif (ISS_centro > 0.34859473007 and ISS_centro <= 0.384041534944):
+        ISS_centro = 3
+    elif (ISS_centro > 0.384041534944 and ISS_centro <= 0.444163127529):
+        ISS_centro = 4
+    elif (ISS_centro > 0.444163127529):
+        ISS_centro = 5
+    else:
+        ISS_centro = 0
+	     
+    if (MSE_centro > 0 and MSE_centro <= 49419):
+        MSE_centro = 1
+    elif (MSE_centro > 49419 and MSE_centro <= 59079.8571429):
+        MSE_centro = 2
+    elif (MSE_centro > 59079.8571429 and MSE_centro <= 65953.9285714):
+        MSE_centro = 3
+    elif (MSE_centro > 65953.9285714 and MSE_centro <= 76172.1428571):
+        MSE_centro = 4
+    elif (MSE_centro > 76172.1428571 and MSE_centro <= 85275.6428571):
+        MSE_centro = 5
+    elif (MSE_centro > 85275.6428571):
+        MSE_centro = 6
+    else:
+        MSE_centro = 0
+             
+    if (ISS > 0 and ISS <= 0.395029459251):
+        ISS = 1
+    elif (ISS > 0.395029459251 and ISS <= 0.518022856003):
+        ISS = 2
+    elif (ISS > 0.518022856003 and ISS <= 0.549536501022):
+        ISS = 3	
+    elif (ISS > 0.549536501022):
+        ISS = 4
+    else:
+        ISS = 0
+             
+    if (MSE > 0 and MSE <= 40129.7142857):
+        MSE = 1
+    elif (MSE > 40129.7142857 and MSE <= 44774.3571429):
+        MSE = 2
+    elif (MSE > 44774.3571429 and MSE <= 47969.8714286):
+        MSE = 3
+    elif (MSE > 47969.8714286 and MSE <= 54658.1571429):
+        MSE = 4
+    elif (MSE > 54658.1571429 and MSE <= 60937.7142857):
+        MSE = 5
+    elif (MSE > 60937.7142857):
+        MSE = 6
+    else:
+        MSE = 0
+
+    f = 7.956e+00 -2.649e-05*(MSE)  -2.067e+00*(ISS) -4.498e-05*(MSE_centro) -4.587e+00*(ISS_centro)
+    prop = exp(f)/(exp(f) + 1)
+    score = prop*100
+
+    return score # a funcao retorna um score em formato numerico de 0 a 100.
 
 # função de busca de letra que dá o melhor matching
 def busca_melhor(letra):
@@ -234,6 +296,27 @@ def busca_melhor(letra):
 
 	return rotulo_letra_maior_score
 
+# função de busca de letra que dá o melhor matching
+def busca_melhor2(letra):
+
+	_, letters_dict = ler_letras("../letras.csv")
+	
+	score_ini = 0
+
+	for i in letters_dict:
+		
+		img = skio.imread("../" + i)
+		
+		m, s = compare_images(letra, img)
+		mc, cs = compare_images(letra[10:40,], img[10:40,])
+	 	 
+		score = super_score2(m, s, mc, cs)
+		if score > score_ini: # then letra_oficial=dicionario[i]
+			rotulo_letra_maior_score = str(letters_dict[i]['rotulo'])
+			score_ini = score
+
+	return rotulo_letra_maior_score
+
 
 def quebra_captcha(captcha):
 
@@ -248,6 +331,22 @@ def quebra_captcha(captcha):
 
 	for letra in [a, b, c, d, e, f]:
 		melhor = busca_melhor(letra)
+		resposta = resposta + melhor
+	return resposta
+
+def quebra_captcha2(captcha):
+
+	a = crop_char(captcha, 0)
+	b = crop_char(captcha, 1)
+	c = crop_char(captcha, 2)
+	d = crop_char(captcha, 3)
+	e = crop_char(captcha, 4)
+	f = crop_char(captcha, 5)
+	
+	resposta = ""
+
+	for letra in [a, b, c, d, e, f]:
+		melhor = busca_melhor2(letra)
 		resposta = resposta + melhor
 	return resposta
 
