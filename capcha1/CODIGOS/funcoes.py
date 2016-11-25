@@ -23,11 +23,13 @@ import matplotlib.gridspec as gridspec
 # image trasformation packages
 from PIL import Image
 import skimage.io as skio
+from skimage import feature
 from skimage.util import dtype_limits
-from skimage.morphology import label
+from skimage.morphology import label, skeletonize
 from skimage.measure import regionprops
 from skimage.filters import rank
 from skimage.measure import compare_ssim, compare_mse
+from sklearn.preprocessing import binarize
 
 # pacotes de suporte para ML
 from sklearn.externals import joblib
@@ -53,7 +55,7 @@ def compare_images(imageA, imageB, title = "Titulo", channel=True, plot=False):
     # index for the images
     m = mse(imageA, imageB)
     s = compare_ssim(imageA, imageB, multichannel=channel)
-    if plot == False:
+    if not plot:
         return [m, s]
     else:
         # setup the figure
@@ -157,22 +159,43 @@ def save_combinations(permutes, dic, arquivo = "../combinacoes.txt"):
     """ Função que recebe um conjunto de combinações de arquivos e um dicionário com os rótulos.
     O retorno desta função é a criação de um arquivo com as análises de combinações dos arquivos."""
     with open(arquivo, 'w+') as f:
-        f.write("resposta,char1,char2,MSE,ISS,MSE_centro,ISS_centro\n")
+        f.write("resposta,char1,char2,MSE,ISS,MSE_centro,ISS_centro,\
+        MSE_canny,ISS_canny,MSE_canny_centro,ISS_canny_centro,\
+        MSE_skeleton,ISS_skeleton,MSE_skeleton_centro,ISS_skeleton_centro\n")
 
     for dupla in permutes:
-        imgA = skio.imread("../" + dupla[0])
-        imgB = skio.imread("../" + dupla[1])
+        imgA = skio.imread("../" + dupla[0])#flatten=True)
+        imgB = skio.imread("../" + dupla[1])#, flatten=True)
         if (dic[dupla[0]]['rotulo'] == dic[dupla[1]]['rotulo']):
             resposta = 1
         else:
             resposta = 0
-        m, s = compare_images(imgA, imgB)
+        mse, iss = compare_images(imgA, imgB)
 
-        mc, cs = compare_images(imgA[10:40,], imgB[10:40,])
+        mse_centro, iss_centro = compare_images(imgA[10:40,], imgB[10:40,])
+
+        imgA, imgB = imgA[ : , : , 0], imgB[ : , : , 0] # transformada para 2-dimensional para canny e skeleton
+
+        mse_canny, iss_canny = compare_images(feature.canny(imgA), feature.canny(imgB))
+
+        mse_canny_centro, iss_canny_centro = compare_images(feature.canny(imgA[10:40,]), feature.canny(imgB[10:40,]))
+
+        maskA1, maskB1 = imgA == 255, imgB == 255 # inverter as imagens e deixar em 0s e 1s
+        maskA0, maskB0 = imgA == 0, imgB == 0
+        imgA[maskA0], imgB[maskB0] = 1, 1
+        imgA[maskA1], imgB[maskB1] = 0, 0
+
+        mse_skeleton, iss_skeleton = compare_images(skeletonize(imgA), skeletonize(imgB))
+
+        mse_skeleton_centro, iss_skeleton_centro = compare_images(skeletonize(imgA[10:40,]), skeletonize(imgB[10:40,]))
 
         with open(arquivo, 'a+') as f:
-            f.write(str(resposta) + "," + dupla[0] + "," + dupla[1] + "," + str(m) + \
-                    "," + str(s) + "," + str(mc) + "," + str(cs) + "\n")
+            f.write(str(resposta) + "," + dupla[0] + "," + dupla[1] + "," + str(mse) + ","
+                    + str(iss) + "," + str(mse_centro) + "," + str(iss_centro)
+                    + "," + str(mse_canny) + "," + str(iss_canny) + ","
+                    + "," + str(mse_canny_centro) + "," + str(iss_canny_centro)
+                    + "," + str(mse_skeleton) + "," + str(iss_skeleton) + ","
+                    + "," + str(mse_skeleton_centro) + "," + str(iss_skeleton_centro) + "\n")
 
 # Fltro nas imagens
 def remove_small_blobs(bw_img, min_area=10, **label_kwargs):
@@ -227,47 +250,6 @@ def super_score2(MSE, ISS, MSE_centro, ISS_centro):
         CAT_ISS_centro = 1.506e+00
     else:
         CAT_ISS_centro = 0
-	     
-    """if (MSE_centro > 0 and MSE_centro <= 49419):
-        CAT_MSE_centro = 0
-    elif (MSE_centro > 49419 and MSE_centro <= 59079.8571429):
-        CAT_MSE_centro = -8.073e-01
-    elif (MSE_centro > 59079.8571429 and MSE_centro <= 65953.9285714):
-        CAT_MSE_centro = -2.944e-01
-    elif (MSE_centro > 65953.9285714 and MSE_centro <= 76172.1428571):
-        CAT_MSE_centro = 8.699e-02
-    elif (MSE_centro > 76172.1428571 and MSE_centro <= 85275.6428571):
-        CAT_MSE_centro = 1.506e+00
-    elif (MSE_centro > 85275.6428571):
-        CAT_MSE_centro = 0
-    else:
-        CAT_MSE_centro = 0"""
-             
-    """if (ISS > 0 and ISS <= 0.395029459251):
-        CAT_ISS = 0
-    elif (ISS > 0.395029459251 and ISS <= 0.518022856003):
-        CAT_ISS = -8.073e-01
-    elif (ISS > 0.518022856003 and ISS <= 0.549536501022):
-        CAT_ISS = -2.944e-01	
-    elif (ISS > 0.549536501022):
-        CAT_ISS = 8.699e-02
-    else:
-        CAT_ISS = 0"""
-             
-    """if (MSE > 0 and MSE <= 40129.7142857):
-        CAT_MSE = 0
-    elif (MSE > 40129.7142857 and MSE <= 44774.3571429):
-        CAT_MSE = -8.073e-01
-    elif (MSE > 44774.3571429 and MSE <= 47969.8714286):
-        CAT_MSE = -2.944e-01
-    elif (MSE > 47969.8714286 and MSE <= 54658.1571429):
-        CAT_MSE = 8.699e-02
-    elif (MSE > 54658.1571429 and MSE <= 60937.7142857):
-        CAT_MSE = 1.506e+00
-    elif (MSE > 60937.7142857):
-        CAT_MSE = 0
-    else:
-        CAT_MSE = 0"""
 
     f = 7.956e+00 -2.649e-05*(MSE)  -2.067e+00*(ISS) -4.498e-05*(MSE_centro) -4.587e+00*(ISS_centro) + CAT_ISS_centro
     prop = exp(f)/(exp(f) + 1)
@@ -279,16 +261,16 @@ def super_score2(MSE, ISS, MSE_centro, ISS_centro):
 def busca_melhor(letra):
 
 	_, letters_dict = ler_letras("../letras.csv")
-	
+
 	score_ini = 0
 
 	for i in letters_dict:
-		
+
 		img = skio.imread("../" + i)
-		
+
 		m, s = compare_images(letra, img)
 		mc, cs = compare_images(letra[10:40,], img[10:40,])
-	 	 
+
 		score = super_score(m, s, mc, cs)
 		if score > score_ini: # then letra_oficial=dicionario[i]
 			rotulo_letra_maior_score = str(letters_dict[i]['rotulo'])
@@ -300,16 +282,16 @@ def busca_melhor(letra):
 def busca_melhor2(letra):
 
 	_, letters_dict = ler_letras("../letras.csv")
-	
+
 	score_ini = 0
 
 	for i in letters_dict:
-		
+
 		img = skio.imread("../" + i)
-		
+
 		m, s = compare_images(letra, img)
 		mc, cs = compare_images(letra[10:40,], img[10:40,])
-	 	 
+
 		score = super_score2(m, s, mc, cs)
 		if score > score_ini: # then letra_oficial=dicionario[i]
 			rotulo_letra_maior_score = str(letters_dict[i]['rotulo'])
@@ -326,7 +308,7 @@ def quebra_captcha(captcha):
 	d = crop_char(captcha, 3)
 	e = crop_char(captcha, 4)
 	f = crop_char(captcha, 5)
-	
+
 	resposta = ""
 
 	for letra in [a, b, c, d, e, f]:
@@ -342,7 +324,7 @@ def quebra_captcha2(captcha):
 	d = crop_char(captcha, 3)
 	e = crop_char(captcha, 4)
 	f = crop_char(captcha, 5)
-	
+
 	resposta = ""
 
 	for letra in [a, b, c, d, e, f]:
@@ -352,7 +334,7 @@ def quebra_captcha2(captcha):
 
 
 def modela_captcha(captcha, tipo = ""):
-	
+
 	_, letters_dict = ler_letras("../letras.csv")
 	a = crop_char(captcha, 0)
 	b = crop_char(captcha, 1)
@@ -362,13 +344,13 @@ def modela_captcha(captcha, tipo = ""):
 	f = crop_char(captcha, 5)
 
 	resposta = ""
-	
+
 	clf = joblib.load('classifier' + tipo + '.pkl')
-	
+
 	for letra in [a, b, c, d, e, f]:
 		dic = {}
 		for base in letters_dict:
-			
+
 			img = skio.imread("../" + base)
 
 			m, s = compare_images(letra, img)
@@ -385,11 +367,11 @@ def modela_captcha(captcha, tipo = ""):
 			resposta = resposta + melhor
 		else:
 			resposta = resposta + " "
-			
+
 	return resposta
 
 def tsrct_captcha(captcha):
-	
+
 	_, letters_dict = ler_letras("../letras.csv")
 	a = crop_char(captcha, 0)
 	b = crop_char(captcha, 1)
@@ -399,15 +381,15 @@ def tsrct_captcha(captcha):
 	f = crop_char(captcha, 5)
 
 	resposta = ""
-	
+
 	for letra in [a, b, c, d, e, f]:
 
 		img = Image.fromarray( letra )
 		tesser =  pytesseract.image_to_string( img )
-		
+
 		if (tesser == ""):
 			resposta = resposta + " "
 		else:
 			resposta = resposta + tesser
-			
+
 	return resposta
