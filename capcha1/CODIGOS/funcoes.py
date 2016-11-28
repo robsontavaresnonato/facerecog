@@ -190,8 +190,8 @@ def save_combinations(permutes, dic, arquivo = "../combinacoes.txt"):
         mse_skeleton_centro, iss_skeleton_centro = compare_images(skeletonize(imgA[10:40,]), skeletonize(imgB[10:40,]))
 
         with open(arquivo, 'a+') as f:
-            f.write(str(resposta) + "," + dupla[0] + "," + dupla[1] + "," + str(mse) + ","
-                    + str(iss) + "," + str(mse_centro) + "," + str(iss_centro)
+            f.write(str(resposta) + "," + dupla[0] + "," + dupla[1] + "," + str(mse)
+                    + "," + str(iss) + "," + str(mse_centro) + "," + str(iss_centro)
                     + "," + str(mse_canny) + "," + str(iss_canny) + ","
                     + "," + str(mse_canny_centro) + "," + str(iss_canny_centro)
                     + "," + str(mse_skeleton) + "," + str(iss_skeleton) + ","
