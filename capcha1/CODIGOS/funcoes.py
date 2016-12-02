@@ -265,7 +265,8 @@ def super_score2(imgA, imgB):
 	else:
 		CAT_ISS_centro = 0
 
-	f = 7.956e+00 -2.649e-05*(mse)  -2.067e+00*(iss) -4.498e-05*(mse_centro) -4.587e+00*(iss_centro) + CAT_ISS_centro
+	f = (7.956e+00 -2.649e-05*(mse)  -2.067e+00*(iss) -4.498e-05*(mse_centro)
+		-4.587e+00*(iss_centro) + CAT_ISS_centro)
 	prop = exp(f)/(exp(f) + 1)
 	score = prop*100
 
@@ -291,10 +292,10 @@ def super_score3(imgA, imgB):
 	ISS_skeleton_centro  -1.5924
 	"""
 
-	f = -3.9202 +0.8420*(iss) +5.8454*(iss_centro) -1.7802*(mse_canny) + \
-		3.0313*(iss_canny) +17.6900*(mse_canny_centro) +7.0150*(iss_canny_centro) - \
-		12.2337*(mse_skeleton) -4.2933*(iss_skeleton) -5.2991*(mse_skeleton_centro) - \
-		1.5924*(iss_skeleton_centro)
+	f = (-3.9202 +0.8420*(iss) +5.8454*(iss_centro) -1.7802*(mse_canny) +
+		3.0313*(iss_canny) +17.6900*(mse_canny_centro) +7.0150*(iss_canny_centro) -
+		12.2337*(mse_skeleton) -4.2933*(iss_skeleton) -5.2991*(mse_skeleton_centro) -
+		1.5924*(iss_skeleton_centro))
 	prop = exp(f)/(exp(f) + 1)
 	score = prop*100
 
@@ -365,13 +366,11 @@ def modela_captcha(captcha, tipo = ""):
 
 			imgB = skio.imread("../" + base)
 
-			mse, iss, mse_centro, iss_centro,\
-			mse_canny, iss_canny, mse_canny_centro, iss_canny_centro,\
+			mse, iss, mse_centro, iss_centro, mse_canny, iss_canny, mse_canny_centro, iss_canny_centro,\
 			mse_skeleton, iss_skeleton, mse_skeleton_centro, iss_skeleton_centro = extract_stats(imgA, imgB)
 
-			if ( clf.predict( [[mse, iss, mse_centro, iss_centro,
-			mse_canny, iss_canny, mse_canny_centro, iss_canny_centro,
-			mse_skeleton, iss_skeleton, mse_skeleton_centro, iss_skeleton_centro]] ) ):
+			if ( clf.predict( [[mse, iss, mse_centro, iss_centro, mse_canny, iss_canny,
+			mse_canny_centro, iss_canny_centro, mse_skeleton, iss_skeleton, mse_skeleton_centro, iss_skeleton_centro]] ) ):
 
 				if (letters_dict[base]['rotulo'] in dic):
 					dic[ letters_dict[base]['rotulo'] ] += 1
