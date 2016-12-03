@@ -279,6 +279,7 @@ def super_score3(imgA, imgB):
 	mse_skeleton, iss_skeleton, mse_skeleton_centro, iss_skeleton_centro = extract_stats(imgA, imgB)
 
 	"""
+	super_score3
 	(Intercept)          -3.9202
 	ISS                   0.8420
 	ISS_centro            5.8454
@@ -290,12 +291,26 @@ def super_score3(imgA, imgB):
 	ISS_skeleton         -4.2933
 	MSE_skeleton_centro  -5.2991
 	ISS_skeleton_centro  -1.5924
+
+	super_score3...2
+	Class 1 :
+	2.98 +
+	[MSE] * 0    +
+	[MSE_centro] * 0    +
+	[ISS_centro] * -0.64 +
+	[MSE_canny] * -6.92 +
+	[ISS_canny] * -2.57 +
+	[MSE_canny_centro] * 9.99 +
+	[ISS_canny_centro] * 3.01 +
+	[ISS_skeleton] * -0.78 +
+	[MSE_skeleton_centro] * 2.86 +
+	[ISS_skeleton_centro] * -0.83
 	"""
 
-	f = (-3.9202 +0.8420*(iss) +5.8454*(iss_centro) -1.7802*(mse_canny) +
-		3.0313*(iss_canny) +17.6900*(mse_canny_centro) +7.0150*(iss_canny_centro) -
-		12.2337*(mse_skeleton) -4.2933*(iss_skeleton) -5.2991*(mse_skeleton_centro) -
-		1.5924*(iss_skeleton_centro))
+	f = (2.98 -0.64*iss_centro - 6.92*mse_canny -2.57*iss_canny
+		+ 9.99*mse_canny_centro +3.01*iss_canny_centro
+		-0.78*iss_skeleton +2.86*mse_skeleton_centro
+		-0.83*iss_skeleton_centro)
 	prop = exp(f)/(exp(f) + 1)
 	score = prop*100
 
