@@ -373,7 +373,7 @@ def modela_captcha(captcha, tipo = ""):
 
 	resposta = ""
 
-	clf = joblib.load('classifier' + tipo + '.pkl')
+	clf = joblib.load('classifier_' + tipo + '.pkl')
 
 	for imgA in [a, b, c, d, e, f]:
 		dic = {}
