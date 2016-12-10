@@ -179,36 +179,8 @@ def extract_stats(imgA, imgB):
 			mse_canny, iss_canny, mse_canny_centro, iss_canny_centro,
 			mse_skeleton, iss_skeleton, mse_skeleton_centro, iss_skeleton_centro]
 
-def save_combinations(permutes, dic, arquivo = "../combinacoes.txt"):
-	""" Função que recebe um conjunto de combinações de arquivos e um dicionário com os rótulos.
-	O retorno desta função é a criação de um arquivo com as análises de combinações dos arquivos."""
-	with open(arquivo, 'w+') as f:
-		f.write("resposta,char1,char2,MSE,ISS,MSE_centro,ISS_centro,"+\
-		"MSE_canny,ISS_canny,MSE_canny_centro,ISS_canny_centro,"+\
-		"MSE_skeleton,ISS_skeleton,MSE_skeleton_centro,ISS_skeleton_centro\n")
-
-	for dupla in permutes:
-		imgA = skio.imread("../" + dupla[0])#flatten=True)
-		imgB = skio.imread("../" + dupla[1])#, flatten=True)
-		if (dic[dupla[0]]['rotulo'] == dic[dupla[1]]['rotulo']):
-			resposta = 1
-		else:
-			resposta = 0
-		mse, iss, mse_centro, iss_centro, \
-		mse_canny, iss_canny, mse_canny_centro, iss_canny_centro, \
-		mse_skeleton, iss_skeleton, mse_skeleton_centro, iss_skeleton_centro = extract_stats(imgA, imgB)
-
-		# ISS_skeleton e MSE_canny não aparecem na tabela, é preciso arrumar isso
-		with open(arquivo, 'a+') as f:
-			f.write(str(resposta) + "," + dupla[0] + "," + dupla[1] + "," + str(mse)\
-					+ "," + str(iss) + "," + str(mse_centro) + "," + str(iss_centro)\
-					+ "," + str(mse_canny) + "," + str(iss_canny) \
-					+ "," + str(mse_canny_centro) + "," + str(iss_canny_centro)\
-					+ "," + str(mse_skeleton) + "," + str(iss_skeleton) \
-					+ "," + str(mse_skeleton_centro) + "," + str(iss_skeleton_centro) + "\n")
-
 # Fltro nas imagens
-def remove_small_blobs(bw_img, min_area=10, **label_kwargs):
+def remove_small_blobs(bw_img, min_area=35, **label_kwargs):
 	""" Remove small blobs in the bw img. """
 	labels = label(bw_img, **label_kwargs)
 
@@ -225,6 +197,35 @@ def remove_small_blobs(bw_img, min_area=10, **label_kwargs):
 			new_bw[labels == roi.label] = fg
 
 	return new_bw
+
+
+def save_combinations(permutes, dic, arquivo = "../combinacoes.txt"):
+	""" Função que recebe um conjunto de combinações de arquivos e um dicionário com os rótulos.
+	O retorno desta função é a criação de um arquivo com as análises de combinações dos arquivos."""
+	with open(arquivo, 'w+') as f:
+		f.write("resposta,char1,char2,MSE,ISS,MSE_centro,ISS_centro,"+\
+		"MSE_canny,ISS_canny,MSE_canny_centro,ISS_canny_centro,"+\
+		"MSE_skeleton,ISS_skeleton,MSE_skeleton_centro,ISS_skeleton_centro\n")
+
+	for dupla in permutes:
+		imgA = remove_small_blobs(skio.imread("../" + dupla[0]),  background=255)#flatten=True)
+		imgB = remove_small_blobs(skio.imread("../" + dupla[1]),  background=255)#, flatten=True)
+		if (dic[dupla[0]]['rotulo'] == dic[dupla[1]]['rotulo']):
+			resposta = 1
+		else:
+			resposta = 0
+		mse, iss, mse_centro, iss_centro, \
+		mse_canny, iss_canny, mse_canny_centro, iss_canny_centro, \
+		mse_skeleton, iss_skeleton, mse_skeleton_centro, iss_skeleton_centro = extract_stats(imgA, imgB)
+
+		# ISS_skeleton e MSE_canny não aparecem na tabela, é preciso arrumar isso
+		with open(arquivo, 'a+') as f:
+			f.write(str(resposta) + "," + dupla[0] + "," + dupla[1] + "," + str(mse)\
+					+ "," + str(iss) + "," + str(mse_centro) + "," + str(iss_centro)\
+					+ "," + str(mse_canny) + "," + str(iss_canny) \
+					+ "," + str(mse_canny_centro) + "," + str(iss_canny_centro)\
+					+ "," + str(mse_skeleton) + "," + str(iss_skeleton) \
+					+ "," + str(mse_skeleton_centro) + "," + str(iss_skeleton_centro) + "\n")
 
 # Teste do PyTesseract
 def run_tesseract(imgs):
