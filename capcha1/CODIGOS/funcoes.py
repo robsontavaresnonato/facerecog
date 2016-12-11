@@ -155,7 +155,30 @@ def checar_combinacoes(permuta, dic):
 			diferentes = diferentes + 1
 	return [mesmo, diferentes]
 
+# Fltro nas imagens
+def remove_small_blobs(bw_img, min_area=35, **label_kwargs):
+	""" Remove small blobs in the bw img. """
+	labels = label(bw_img, **label_kwargs)
+
+	# pick the background and foreground colors
+	bg = label_kwargs.get('background', 0)
+	fg = dtype_limits(bw_img, clip_negative=True)[1] - bg
+
+	# create an empty image
+	new_bw = np.ones_like(bw_img) * bg
+
+	# check the area of each region
+	for roi in regionprops(labels):
+		if roi.area >= min_area:
+			new_bw[labels == roi.label] = fg
+
+	return new_bw
+
 def extract_stats(imgA, imgB):
+
+	imgA = remove_small_blobs(imgA, background = 255)
+	imgB = remove_small_blobs(imgB, background = 255)
+
 	mse, iss = compare_images(imgA, imgB)
 
 	mse_centro, iss_centro = compare_images(imgA[10:40,], imgB[10:40,])
@@ -179,25 +202,6 @@ def extract_stats(imgA, imgB):
 			mse_canny, iss_canny, mse_canny_centro, iss_canny_centro,
 			mse_skeleton, iss_skeleton, mse_skeleton_centro, iss_skeleton_centro]
 
-# Fltro nas imagens
-def remove_small_blobs(bw_img, min_area=35, **label_kwargs):
-	""" Remove small blobs in the bw img. """
-	labels = label(bw_img, **label_kwargs)
-
-	# pick the background and foreground colors
-	bg = label_kwargs.get('background', 0)
-	fg = dtype_limits(bw_img, clip_negative=True)[1] - bg
-
-	# create an empty image
-	new_bw = np.ones_like(bw_img) * bg
-
-	# check the area of each region
-	for roi in regionprops(labels):
-		if roi.area >= min_area:
-			new_bw[labels == roi.label] = fg
-
-	return new_bw
-
 
 def save_combinations(permutes, dic, arquivo = "../combinacoes.txt"):
 	""" Função que recebe um conjunto de combinações de arquivos e um dicionário com os rótulos.
@@ -208,8 +212,8 @@ def save_combinations(permutes, dic, arquivo = "../combinacoes.txt"):
 		"MSE_skeleton,ISS_skeleton,MSE_skeleton_centro,ISS_skeleton_centro\n")
 
 	for dupla in permutes:
-		imgA = remove_small_blobs(skio.imread("../" + dupla[0]),  background=255)#flatten=True)
-		imgB = remove_small_blobs(skio.imread("../" + dupla[1]),  background=255)#, flatten=True)
+		imgA = skio.imread("../" + dupla[0])
+		imgB = skio.imread("../" + dupla[1])
 		if (dic[dupla[0]]['rotulo'] == dic[dupla[1]]['rotulo']):
 			resposta = 1
 		else:
