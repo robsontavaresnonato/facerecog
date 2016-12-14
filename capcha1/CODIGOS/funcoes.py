@@ -174,7 +174,7 @@ def remove_small_blobs(bw_img, min_area=35, **label_kwargs):
 
 	return new_bw
 
-def extract_stats(imgA, imgB):
+def extract_stats(imgA, imgB, sigma = 1):
 
 	imgA = remove_small_blobs(imgA, background = 255)
 	imgB = remove_small_blobs(imgB, background = 255)
@@ -185,7 +185,7 @@ def extract_stats(imgA, imgB):
 
 	imgA, imgB = imgA[ : , : , 0], imgB[ : , : , 0] # transformada para 2-dimensional para canny e skeleton
 
-	mse_canny, iss_canny = compare_images(feature.canny(imgA, sigma=4), feature.canny(imgB, sigma=4))
+	mse_canny, iss_canny = compare_images(feature.canny(imgA, sigma=sigma), feature.canny(imgB, sigma=sigma))
 
 	mse_canny_centro, iss_canny_centro = compare_images(feature.canny(imgA[10:40,], sigma=4), feature.canny(imgB[10:40,], sigma=4))
 
