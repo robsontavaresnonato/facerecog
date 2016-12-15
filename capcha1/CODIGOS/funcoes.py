@@ -321,6 +321,22 @@ def super_score3(imgA, imgB):
 
 	return score # a funcao retorna um score em formato numerico de 0 a 100.
 
+def super_score4(imgA, imgB):
+
+	mse, iss, mse_centro, iss_centro,\
+	mse_canny, iss_canny, mse_canny_centro, iss_canny_centro,\
+	mse_skeleton, iss_skeleton, mse_skeleton_centro, iss_skeleton_centro = extract_stats(imgA, imgB)
+
+	log_odds = (2.960e+00 + 1.203e-04 * (mse) -1.915e-04 * (mse_centro)
+				-2.153e+00 * (iss) -4.615e+00*(iss_centro)
+				+ 3.612e+00 * (mse_canny) + 2.380e+00 * (iss_canny)
+				+ 2.618e+00 * (iss_canny_centro) -4.454e+01 * (mse_skeleton)
+				-1.958e+00*(iss_skeleton) + 5.035e+01*(mse_skeleton_centro) + 4.036e+00*(iss_skeleton_centro ))
+
+	score = 100 *( exp(log_odds)/(1+exp(log_odds)))
+
+	return score # a funcao retorna um score em formato numerico de 0 a 100.
+
 # função de busca de letra que dá o melhor matching
 def busca_melhor(imgA, v, i, log):
 
@@ -338,8 +354,10 @@ def busca_melhor(imgA, v, i, log):
 			score = super_score2(imgA, imgB)
 		elif v == 3:
 			score = super_score3(imgA, imgB)
+		elif v == 4:
+			score = super_score4(imgA, imgB)
 		else:
-			print("v deve estar no intervalo [1, 3].")
+			print("v deve estar no intervalo [1, 4].")
 			break
 		if score > score_ini: # then letra_oficial=dicionario[i]
 			rotulo_letra_maior_score = str(letters_dict[i]['rotulo'])
