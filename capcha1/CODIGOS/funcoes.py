@@ -337,6 +337,20 @@ def super_score4(imgA, imgB):
 
 	return score # a funcao retorna um score em formato numerico de 0 a 100.
 
+def super_score5(imgA, imgB):
+
+	mse, iss, mse_centro, iss_centro,\
+	mse_canny, iss_canny, mse_canny_centro, iss_canny_centro,\
+	mse_skeleton, iss_skeleton, mse_skeleton_centro, iss_skeleton_centro = extract_stats(imgA, imgB)
+
+	log_odds = (3.099e+00 + 4.057e-05 * (mse) -1.209e-04 * (mse_centro) -2.237e+00 * (iss)
+				-1.879e+00*(iss_centro) -1.695e+00 * (iss_canny) + 1.167e+01 * (mse_canny_centro) + 2.626e+00* (iss_canny_centro)
+				-2.132e+01 * (mse_skeleton) + 3.390e+00*(iss_skeleton) + 2.387e+01*(mse_skeleton_centro) -1.636e+00 *(iss_skeleton_centro ))
+
+	score = 100 *( exp(log_odds)/(1+exp(log_odds)))
+
+	return score # a funcao retorna um score em formato numerico de 0 a 100.
+
 # função de busca de letra que dá o melhor matching
 def busca_melhor(imgA, v, i, log):
 
@@ -356,6 +370,8 @@ def busca_melhor(imgA, v, i, log):
 			score = super_score3(imgA, imgB)
 		elif v == 4:
 			score = super_score4(imgA, imgB)
+		elif v == 5:
+			score = super_score5(imgA, imgB)
 		else:
 			print("v deve estar no intervalo [1, 4].")
 			break
