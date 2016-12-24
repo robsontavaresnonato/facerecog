@@ -30,9 +30,20 @@ from skimage.measure import regionprops
 from skimage.filters import rank
 from skimage.measure import compare_ssim, compare_mse
 from sklearn.preprocessing import binarize
+from skimage.morphology import dilation, erosion
+from skimage.morphology import disk
 
 # pacotes de suporte para ML
 from sklearn.externals import joblib
+
+def apply_filter(img, v = 1):
+	if v == 1:
+		return remove_small_blobs(img, background=255)
+	else:
+		selem = disk(1.4)
+		dilatado = dilation(remove_small_blobs(img[ : , : , 1], background=255, min_area=10), selem)
+		unblobbed2 = remove_small_blobs(erosion(dilatado, selem), background=255, min_area=45)
+		return rank.mean(unblobbed2, selem=selem)
 
 # Funções de comparação entre imagens
 def mse(imageA, imageB):
@@ -183,7 +194,7 @@ def extract_stats(imgA, imgB, sigma = 1):
 
 	mse_centro, iss_centro = compare_images(imgA[10:40,], imgB[10:40,])
 
-	imgA, imgB = imgA[ : , : , 0], imgB[ : , : , 0] # transformada para 2-dimensional para canny e skeleton
+	#imgA, imgB = imgA[ : , : , 0], imgB[ : , : , 0] # transformada para 2-dimensional para canny e skeleton
 
 	mse_canny, iss_canny = compare_images(feature.canny(imgA, sigma=sigma), feature.canny(imgB, sigma=sigma))
 
