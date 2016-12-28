@@ -1,721 +1,721 @@
-path, rotulo, caixa_alta_baixa
-letras/caracter0.png, 9, numero
-letras/caracter1.png, 9, numero
-letras/caracter2.png, 9, numero
-letras/caracter3.png, 9, numero
-letras/caracter4.png, 9, numero
-letras/caracter5.png, 9, numero
-letras/caracter6.png, 9, numero
-letras/caracter7.png, 9, numero
-letras/caracter8.png, 9, numero
-letras/caracter9.png, 9, numero
-letras/caracter10.png, 9, numero
-letras/caracter11.png, 9, numero
-letras/caracter12.png, 4, numero
-letras/caracter13.png, 4, numero
-letras/caracter14.png, 4, numero
-letras/caracter15.png, 4, numero
-letras/caracter16.png, 4, numero
-letras/caracter17.png, 4, numero
-letras/caracter18.png, 4, numero
-letras/caracter19.png, 4, numero
-letras/caracter20.png, 4, numero
-letras/caracter21.png, 4, numero
-letras/caracter22.png, 4, numero
-letras/caracter23.png, 4, numero
-letras/caracter24.png, g, minusculo
-letras/caracter25.png, g, minusculo
-letras/caracter26.png, g, minusculo
-letras/caracter27.png, g, minusculo
-letras/caracter28.png, g, minusculo
-letras/caracter29.png, g, minusculo
-letras/caracter30.png, g, minusculo
-letras/caracter31.png, g, minusculo
-letras/caracter32.png, g, minusculo
-letras/caracter33.png, g, minusculo
-letras/caracter34.png, g, minusculo
-letras/caracter35.png, g, minusculo
-letras/caracter36.png, g, minusculo
-letras/caracter37.png, i, minusculo
-letras/caracter38.png, i, minusculo
-letras/caracter39.png, i, minusculo
-letras/caracter40.png, i, minusculo
-letras/caracter41.png, i, minusculo
-letras/caracter42.png, i, minusculo
-letras/caracter43.png, i, minusculo
-letras/caracter44.png, i, minusculo
-letras/caracter45.png, i, minusculo
-letras/caracter46.png, i, minusculo
-letras/caracter47.png, H, maiusculo
-letras/caracter48.png, H, maiusculo
-letras/caracter49.png, H, maiusculo
-letras/caracter50.png, H, maiusculo
-letras/caracter51.png, H, maiusculo
-letras/caracter52.png, H, maiusculo
-letras/caracter53.png, H, maiusculo
-letras/caracter54.png, H, maiusculo
-letras/caracter55.png, H, maiusculo
-letras/caracter56.png, H, maiusculo
-letras/caracter57.png, H, maiusculo
-letras/caracter58.png, H, maiusculo
-letras/caracter59.png, H, maiusculo
-letras/caracter60.png, H, maiusculo
-letras/caracter61.png, H, maiusculo
-letras/caracter62.png, H, maiusculo
-letras/caracter63.png, H, maiusculo
-letras/caracter64.png, H, maiusculo
-letras/caracter65.png, x, minusculo
-letras/caracter66.png, x, minusculo
-letras/caracter67.png, x, minusculo
-letras/caracter68.png, x, minusculo
-letras/caracter69.png, x, minusculo
-letras/caracter70.png, x, minusculo
-letras/caracter71.png, x, minusculo
-letras/caracter72.png, x, minusculo
-letras/caracter73.png, x, minusculo
-letras/caracter74.png, x, minusculo
-letras/caracter75.png, x, minusculo
-letras/caracter76.png, x, minusculo
-letras/caracter77.png, x, minusculo
-letras/caracter78.png, x, minusculo
-letras/caracter79.png, x, minusculo
-letras/caracter80.png, x, minusculo
-letras/caracter81.png, x, minusculo
-letras/caracter82.png, x, minusculo
-letras/caracter83.png, x, minusculo
-letras/caracter84.png, x, minusculo
-letras/caracter85.png, p, minusculo
-letras/caracter86.png, p, minusculo
-letras/caracter87.png, p, minusculo
-letras/caracter88.png, p, minusculo
-letras/caracter89.png, p, minusculo
-letras/caracter90.png, p, minusculo
-letras/caracter91.png, p, minusculo
-letras/caracter92.png, p, minusculo
-letras/caracter93.png, p, minusculo
-letras/caracter94.png, p, minusculo
-letras/caracter95.png, p, minusculo
-letras/caracter96.png, p, minusculo
-letras/caracter97.png, p, minusculo
-letras/caracter98.png, p, minusculo
-letras/caracter99.png, p, minusculo
-letras/caracter100.png, p, minusculo
-letras/caracter101.png, p, minusculo
-letras/caracter102.png, p, minusculo
-letras/caracter103.png, p, minusculo
-letras/caracter104.png, p, minusculo
-letras/caracter105.png, p, minusculo
-letras/caracter106.png, p, minusculo
-letras/caracter107.png, p, minusculo
-letras/caracter108.png, p, minusculo
-letras/caracter109.png, p, minusculo
-letras/caracter110.png, p, minusculo
-letras/caracter111.png, p, minusculo
-letras/caracter112.png, p, minusculo
-letras/caracter113.png, p, minusculo
-letras/caracter114.png, p, minusculo
-letras/caracter115.png, W, maiusculo
-letras/caracter116.png, l, minusculo
-letras/caracter117.png, b, minusculo
-letras/caracter118.png, b, minusculo
-letras/caracter119.png, b, minusculo
-letras/caracter120.png, b, minusculo
-letras/caracter121.png, b, minusculo
-letras/caracter122.png, b, minusculo
-letras/caracter123.png, b, minusculo
-letras/caracter124.png, b, minusculo
-letras/caracter125.png, b, minusculo
-letras/caracter126.png, b, minusculo
-letras/caracter127.png, b, minusculo
-letras/caracter128.png, 5, numero
-letras/caracter129.png, 5, numero
-letras/caracter130.png, 5, numero
-letras/caracter131.png, 5, numero
-letras/caracter132.png, 5, numero
-letras/caracter133.png, 5, numero
-letras/caracter134.png, 5, numero
-letras/caracter135.png, 5, numero
-letras/caracter136.png, 5, numero
-letras/caracter137.png, 5, numero
-letras/caracter138.png, 5, numero
-letras/caracter139.png, 5, numero
-letras/caracter140.png, 6, numero
-letras/caracter141.png, 6, numero
-letras/caracter142.png, 6, numero
-letras/caracter143.png, 6, numero
-letras/caracter144.png, 6, numero
-letras/caracter145.png, 6, numero
-letras/caracter146.png, 6, numero
-letras/caracter147.png, 6, numero
-letras/caracter148.png, 6, numero
-letras/caracter149.png, 6, numero
-letras/caracter150.png, 6, numero
-letras/caracter151.png, 6, numero
-letras/caracter152.png, 6, numero
-letras/caracter153.png, h, minusculo
-letras/caracter154.png, h, minusculo
-letras/caracter155.png, h, minusculo
-letras/caracter156.png, h, minusculo
-letras/caracter157.png, h, minusculo
-letras/caracter158.png, h, minusculo
-letras/caracter159.png, h, minusculo
-letras/caracter160.png, h, minusculo
-letras/caracter161.png, h, minusculo
-letras/caracter162.png, h, minusculo
-letras/caracter163.png, n, minusculo
-letras/caracter164.png, n, minusculo
-letras/caracter165.png, n, minusculo
-letras/caracter166.png, n, minusculo
-letras/caracter167.png, n, minusculo
-letras/caracter168.png, n, minusculo
-letras/caracter169.png, n, minusculo
-letras/caracter170.png, n, minusculo
-letras/caracter171.png, n, minusculo
-letras/caracter172.png, n, minusculo
-letras/caracter173.png, n, minusculo
-letras/caracter174.png, n, minusculo
-letras/caracter175.png, n, minusculo
-letras/caracter176.png, n, minusculo
-letras/caracter177.png, n, minusculo
-letras/caracter178.png, n, minusculo
-letras/caracter179.png, n, minusculo
-letras/caracter180.png, n, minusculo
-letras/caracter181.png, n, minusculo
-letras/caracter182.png, n, minusculo
-letras/caracter183.png, n, minusculo
-letras/caracter184.png, n, minusculo
-letras/caracter185.png, z, minusculo
-letras/caracter186.png, z, minusculo
-letras/caracter187.png, z, minusculo
-letras/caracter188.png, z, minusculo
-letras/caracter189.png, z, minusculo
-letras/caracter190.png, z, minusculo
-letras/caracter191.png, z, minusculo
-letras/caracter192.png, z, minusculo
-letras/caracter193.png, z, minusculo
-letras/caracter194.png, z, minusculo
-letras/caracter195.png, z, minusculo
-letras/caracter196.png, z, minusculo
-letras/caracter197.png, z, minusculo
-letras/caracter198.png, z, minusculo
-letras/caracter199.png, z, minusculo
-letras/caracter200.png, z, minusculo
-letras/caracter201.png, z, minusculo
-letras/caracter202.png, z, minusculo
-letras/caracter203.png, z, minusculo
-letras/caracter204.png, z, minusculo
-letras/caracter205.png, f, minusculo
-letras/caracter206.png, f, minusculo
-letras/caracter207.png, f, minusculo
-letras/caracter208.png, f, minusculo
-letras/caracter209.png, f, minusculo
-letras/caracter210.png, 7, numero
-letras/caracter211.png, 7, numero
-letras/caracter212.png, 7, numero
-letras/caracter213.png, 7, numero
-letras/caracter214.png, 7, numero
-letras/caracter215.png, 7, numero
-letras/caracter216.png, 7, numero
-letras/caracter217.png, 7, numero
-letras/caracter218.png, 7, numero
-letras/caracter219.png, 7, numero
-letras/caracter220.png, 7, numero
-letras/caracter221.png, 7, numero
-letras/caracter222.png, 7, numero
-letras/caracter223.png, 7, numero
-letras/caracter224.png, 7, numero
-letras/caracter225.png, d, minusculo
-letras/caracter226.png, d, minusculo
-letras/caracter227.png, d, minusculo
-letras/caracter228.png, d, minusculo
-letras/caracter229.png, d, minusculo
-letras/caracter230.png, d, minusculo
-letras/caracter231.png, d, minusculo
-letras/caracter232.png, d, minusculo
-letras/caracter233.png, q, minusculo
-letras/caracter234.png, q, minusculo
-letras/caracter235.png, q, minusculo
-letras/caracter236.png, q, minusculo
-letras/caracter237.png, q, minusculo
-letras/caracter238.png, q, minusculo
-letras/caracter239.png, q, minusculo
-letras/caracter240.png, q, minusculo
-letras/caracter241.png, q, minusculo
-letras/caracter242.png, q, minusculo
-letras/caracter243.png, q, minusculo
-letras/caracter244.png, q, minusculo
-letras/caracter245.png, q, minusculo
-letras/caracter246.png, q, minusculo
-letras/caracter247.png, w, minusculo
-letras/caracter248.png, w, minusculo
-letras/caracter249.png, w, minusculo
-letras/caracter250.png, w, minusculo
-letras/caracter251.png, w, minusculo
-letras/caracter252.png, w, minusculo
-letras/caracter253.png, w, minusculo
-letras/caracter254.png, w, minusculo
-letras/caracter255.png, w, minusculo
-letras/caracter256.png, w, minusculo
-letras/caracter257.png, w, minusculo
-letras/caracter258.png, w, minusculo
-letras/caracter259.png, w, minusculo
-letras/caracter260.png, w, minusculo
-letras/caracter261.png, w, minusculo
-letras/caracter262.png, w, minusculo
-letras/caracter263.png, w, minusculo
-letras/caracter264.png, w, minusculo
-letras/caracter265.png, w, minusculo
-letras/caracter266.png, P, maiusculo
-letras/caracter267.png, y, minusculo
-letras/caracter268.png, y, minusculo
-letras/caracter269.png, y, minusculo
-letras/caracter270.png, y, minusculo
-letras/caracter271.png, y, minusculo
-letras/caracter272.png, y, minusculo
-letras/caracter273.png, y, minusculo
-letras/caracter274.png, y, minusculo
-letras/caracter275.png, y, minusculo
-letras/caracter276.png, y, minusculo
-letras/caracter277.png, y, minusculo
-letras/caracter278.png, y, minusculo
-letras/caracter279.png, y, minusculo
-letras/caracter280.png, y, minusculo
-letras/caracter281.png, y, minusculo
-letras/caracter282.png, y, minusculo
-letras/caracter283.png, y, minusculo
-letras/caracter284.png, y, minusculo
-letras/caracter285.png, y, minusculo
-letras/caracter286.png, y, minusculo
-letras/caracter287.png, y, minusculo
-letras/caracter288.png, y, minusculo
-letras/caracter289.png, y, minusculo
-letras/caracter290.png, y, minusculo
-letras/caracter291.png, s, minusculo
-letras/caracter292.png, s, minusculo
-letras/caracter293.png, s, minusculo
-letras/caracter294.png, s, minusculo
-letras/caracter295.png, s, minusculo
-letras/caracter296.png, s, minusculo
-letras/caracter297.png, s, minusculo
-letras/caracter298.png, s, minusculo
-letras/caracter299.png, s, minusculo
-letras/caracter300.png, s, minusculo
-letras/caracter301.png, s, minusculo
-letras/caracter302.png, s, minusculo
-letras/caracter303.png, s, minusculo
-letras/caracter304.png, s, minusculo
-letras/caracter305.png, s, minusculo
-letras/caracter306.png, s, minusculo
-letras/caracter307.png, s, minusculo
-letras/caracter308.png, s, minusculo
-letras/caracter309.png, s, minusculo
-letras/caracter310.png, s, minusculo
-letras/caracter311.png, s, minusculo
-letras/caracter312.png, s, minusculo
-letras/caracter313.png, s, minusculo
-letras/caracter314.png, s, minusculo
-letras/caracter315.png, s, minusculo
-letras/caracter316.png, s, minusculo
-letras/caracter317.png, s, minusculo
-letras/caracter318.png, s, minusculo
-letras/caracter319.png, s, minusculo
-letras/caracter320.png, s, minusculo
-letras/caracter321.png, s, minusculo
-letras/caracter322.png, R, maiusculo
-letras/caracter323.png, R, maiusculo
-letras/caracter324.png, R, maiusculo
-letras/caracter325.png, R, maiusculo
-letras/caracter326.png, R, maiusculo
-letras/caracter327.png, R, maiusculo
-letras/caracter328.png, R, maiusculo
-letras/caracter329.png, R, maiusculo
-letras/caracter330.png, R, maiusculo
-letras/caracter331.png, R, maiusculo
-letras/caracter332.png, R, maiusculo
-letras/caracter333.png, R, maiusculo
-letras/caracter334.png, 2, numero
-letras/caracter335.png, 2, numero
-letras/caracter336.png, 2, numero
-letras/caracter337.png, 2, numero
-letras/caracter338.png, 2, numero
-letras/caracter339.png, 2, numero
-letras/caracter340.png, m, minusculo
-letras/caracter341.png, m, minusculo
-letras/caracter342.png, m, minusculo
-letras/caracter343.png, m, minusculo
-letras/caracter344.png, m, minusculo
-letras/caracter345.png, m, minusculo
-letras/caracter346.png, m, minusculo
-letras/caracter347.png, m, minusculo
-letras/caracter348.png, m, minusculo
-letras/caracter349.png, m, minusculo
-letras/caracter350.png, m, minusculo
-letras/caracter351.png, B, maiusculo
-letras/caracter352.png, B, maiusculo
-letras/caracter353.png, B, maiusculo
-letras/caracter354.png, B, maiusculo
-letras/caracter355.png, B, maiusculo
-letras/caracter356.png, B, maiusculo
-letras/caracter357.png, B, maiusculo
-letras/caracter358.png, B, maiusculo
-letras/caracter359.png, B, maiusculo
-letras/caracter360.png, B, maiusculo
-letras/caracter361.png, B, maiusculo
-letras/caracter362.png, B, maiusculo
-letras/caracter363.png, B, maiusculo
-letras/caracter364.png, 8, numero
-letras/caracter365.png, 8, numero
-letras/caracter366.png, 8, numero
-letras/caracter367.png, 8, numero
-letras/caracter368.png, 8, numero
-letras/caracter369.png, 8, numero
-letras/caracter370.png, 8, numero
-letras/caracter371.png, 8, numero
-letras/caracter372.png, 8, numero
-letras/caracter373.png, 8, numero
-letras/caracter374.png, 8, numero
-letras/caracter375.png, 8, numero
-letras/caracter376.png, 8, numero
-letras/caracter377.png, 8, numero
-letras/caracter378.png, L, maiusculo
-letras/caracter379.png, L, maiusculo
-letras/caracter380.png, L, maiusculo
-letras/caracter381.png, L, maiusculo
-letras/caracter382.png, L, maiusculo
-letras/caracter383.png, L, maiusculo
-letras/caracter384.png, L, maiusculo
-letras/caracter385.png, L, maiusculo
-letras/caracter386.png, L, maiusculo
-letras/caracter387.png, L, maiusculo
-letras/caracter388.png, L, maiusculo
-letras/caracter389.png, L, maiusculo
-letras/caracter390.png, o, minusculo
-letras/caracter391.png, o, minusculo
-letras/caracter392.png, o, minusculo
-letras/caracter393.png, o, minusculo
-letras/caracter394.png, o, minusculo
-letras/caracter395.png, o, minusculo
-letras/caracter396.png, o, minusculo
-letras/caracter397.png, o, minusculo
-letras/caracter398.png, o, minusculo
-letras/caracter399.png, o, minusculo
-letras/caracter400.png, o, minusculo
-letras/caracter401.png, o, minusculo
-letras/caracter402.png, o, minusculo
-letras/caracter403.png, o, minusculo
-letras/caracter404.png, o, minusculo
-letras/caracter405.png, o, minusculo
-letras/caracter406.png, M, maiusculo
-letras/caracter407.png, M, maiusculo
-letras/caracter408.png, M, maiusculo
-letras/caracter409.png, M, maiusculo
-letras/caracter410.png, M, maiusculo
-letras/caracter411.png, M, maiusculo
-letras/caracter412.png, M, maiusculo
-letras/caracter413.png, M, maiusculo
-letras/caracter414.png, M, maiusculo
-letras/caracter415.png, A, maiusculo
-letras/caracter416.png, A, maiusculo
-letras/caracter417.png, A, maiusculo
-letras/caracter418.png, A, maiusculo
-letras/caracter419.png, A, maiusculo
-letras/caracter420.png, A, maiusculo
-letras/caracter421.png, A, maiusculo
-letras/caracter422.png, A, maiusculo
-letras/caracter423.png, A, maiusculo
-letras/caracter424.png, A, maiusculo
-letras/caracter425.png, A, maiusculo
-letras/caracter426.png, A, maiusculo
-letras/caracter427.png, A, maiusculo
-letras/caracter428.png, A, maiusculo
-letras/caracter429.png, A, maiusculo
-letras/caracter430.png, A, maiusculo
-letras/caracter431.png, k, minusculo
-letras/caracter432.png, k, minusculo
-letras/caracter433.png, k, minusculo
-letras/caracter434.png, k, minusculo
-letras/caracter435.png, k, minusculo
-letras/caracter436.png, k, minusculo
-letras/caracter437.png, k, minusculo
-letras/caracter438.png, k, minusculo
-letras/caracter439.png, k, minusculo
-letras/caracter440.png, k, minusculo
-letras/caracter441.png, k, minusculo
-letras/caracter442.png, k, minusculo
-letras/caracter443.png, k, minusculo
-letras/caracter444.png, k, minusculo
-letras/caracter445.png, k, minusculo
-letras/caracter446.png, k, minusculo
-letras/caracter447.png, k, minusculo
-letras/caracter448.png, k, minusculo
-letras/caracter449.png, k, minusculo
-letras/caracter450.png, k, minusculo
-letras/caracter451.png, k, minusculo
-letras/caracter452.png, k, minusculo
-letras/caracter453.png, k, minusculo
-letras/caracter454.png, v, minusculo
-letras/caracter455.png, v, minusculo
-letras/caracter456.png, v, minusculo
-letras/caracter457.png, v, minusculo
-letras/caracter458.png, v, minusculo
-letras/caracter459.png, v, minusculo
-letras/caracter460.png, v, minusculo
-letras/caracter461.png, v, minusculo
-letras/caracter462.png, v, minusculo
-letras/caracter463.png, v, minusculo
-letras/caracter464.png, v, minusculo
-letras/caracter465.png, v, minusculo
-letras/caracter466.png, v, minusculo
-letras/caracter467.png, v, minusculo
-letras/caracter468.png, v, minusculo
-letras/caracter469.png, v, minusculo
-letras/caracter470.png, v, minusculo
-letras/caracter471.png, v, minusculo
-letras/caracter472.png, v, minusculo
-letras/caracter473.png, v, minusculo
-letras/caracter474.png, v, minusculo
-letras/caracter475.png, v, minusculo
-letras/caracter476.png, v, minusculo
-letras/caracter477.png, v, minusculo
-letras/caracter478.png, v, minusculo
-letras/caracter479.png, v, minusculo
-letras/caracter480.png, v, minusculo
-letras/caracter481.png, v, minusculo
-letras/caracter482.png, v, minusculo
-letras/caracter483.png, v, minusculo
-letras/caracter484.png, J, maiusculo
-letras/caracter485.png, J, maiusculo
-letras/caracter486.png, J, maiusculo
-letras/caracter487.png, J, maiusculo
-letras/caracter488.png, J, maiusculo
-letras/caracter489.png, J, maiusculo
-letras/caracter490.png, J, maiusculo
-letras/caracter491.png, J, maiusculo
-letras/caracter492.png, J, maiusculo
-letras/caracter493.png, J, maiusculo
-letras/caracter494.png, j, minusculo
-letras/caracter495.png, j, minusculo
-letras/caracter496.png, j, minusculo
-letras/caracter497.png, j, minusculo
-letras/caracter498.png, j, minusculo
-letras/caracter499.png, j, minusculo
-letras/caracter500.png, j, minusculo
-letras/caracter501.png, j, minusculo
-letras/caracter502.png, j, minusculo
-letras/caracter503.png, j, minusculo
-letras/caracter504.png, j, minusculo
-letras/caracter505.png, e, minusculo
-letras/caracter506.png, e, minusculo
-letras/caracter507.png, e, minusculo
-letras/caracter508.png, e, minusculo
-letras/caracter509.png, e, minusculo
-letras/caracter510.png, e, minusculo
-letras/caracter511.png, e, minusculo
-letras/caracter512.png, e, minusculo
-letras/caracter513.png, e, minusculo
-letras/caracter514.png, e, minusculo
-letras/caracter515.png, e, minusculo
-letras/caracter516.png, e, minusculo
-letras/caracter517.png, 1, numero
-letras/caracter518.png, 1, numero
-letras/caracter519.png, 1, numero
-letras/caracter520.png, 1, numero
-letras/caracter521.png, 1, numero
-letras/caracter522.png, 1, numero
-letras/caracter523.png, 1, numero
-letras/caracter524.png, 1, numero
-letras/caracter525.png, 1, numero
-letras/caracter526.png, 1, numero
-letras/caracter527.png, 1, numero
-letras/caracter528.png, 1, numero
-letras/caracter529.png, 1, numero
-letras/caracter530.png, 1, numero
-letras/caracter531.png, 1, numero
-letras/caracter532.png, 1, numero
-letras/caracter533.png, 1, numero
-letras/caracter534.png, 1, numero
-letras/caracter535.png, 1, numero
-letras/caracter536.png, G, maiusculo
-letras/caracter537.png, G, maiusculo
-letras/caracter538.png, G, maiusculo
-letras/caracter539.png, G, maiusculo
-letras/caracter540.png, G, maiusculo
-letras/caracter541.png, G, maiusculo
-letras/caracter542.png, G, maiusculo
-letras/caracter543.png, G, maiusculo
-letras/caracter544.png, G, maiusculo
-letras/caracter545.png, G, maiusculo
-letras/caracter546.png, G, maiusculo
-letras/caracter547.png, G, maiusculo
-letras/caracter548.png, t, minusculo
-letras/caracter549.png, t, minusculo
-letras/caracter550.png, t, minusculo
-letras/caracter551.png, t, minusculo
-letras/caracter552.png, t, minusculo
-letras/caracter553.png, t, minusculo
-letras/caracter554.png, t, minusculo
-letras/caracter555.png, t, minusculo
-letras/caracter556.png, t, minusculo
-letras/caracter557.png, T, maiusculo
-letras/caracter558.png, T, maiusculo
-letras/caracter559.png, T, maiusculo
-letras/caracter560.png, T, maiusculo
-letras/caracter561.png, T, maiusculo
-letras/caracter562.png, T, maiusculo
-letras/caracter563.png, T, maiusculo
-letras/caracter564.png, T, maiusculo
-letras/caracter565.png, T, maiusculo
-letras/caracter566.png, T, maiusculo
-letras/caracter567.png, T, maiusculo
-letras/caracter568.png, T, maiusculo
-letras/caracter569.png, T, maiusculo
-letras/caracter570.png, T, maiusculo
-letras/caracter571.png, a, minusculo
-letras/caracter572.png, a, minusculo
-letras/caracter573.png, a, minusculo
-letras/caracter574.png, a, minusculo
-letras/caracter575.png, a, minusculo
-letras/caracter576.png, a, minusculo
-letras/caracter577.png, a, minusculo
-letras/caracter578.png, a, minusculo
-letras/caracter579.png, a, minusculo
-letras/caracter580.png, a, minusculo
-letras/caracter581.png, a, minusculo
-letras/caracter582.png, a, minusculo
-letras/caracter583.png, a, minusculo
-letras/caracter584.png, a, minusculo
-letras/caracter585.png, a, minusculo
-letras/caracter586.png, a, minusculo
-letras/caracter587.png, a, minusculo
-letras/caracter588.png, a, minusculo
-letras/caracter589.png, Q, maiusculo
-letras/caracter590.png, Q, maiusculo
-letras/caracter591.png, Q, maiusculo
-letras/caracter592.png, Q, maiusculo
-letras/caracter593.png, Q, maiusculo
-letras/caracter594.png, Q, maiusculo
-letras/caracter595.png, Q, maiusculo
-letras/caracter596.png, Q, maiusculo
-letras/caracter597.png, r, minusculo
-letras/caracter598.png, r, minusculo
-letras/caracter599.png, r, minusculo
-letras/caracter600.png, r, minusculo
-letras/caracter601.png, r, minusculo
-letras/caracter602.png, r, minusculo
-letras/caracter603.png, r, minusculo
-letras/caracter604.png, r, minusculo
-letras/caracter605.png, r, minusculo
-letras/caracter606.png, r, minusculo
-letras/caracter607.png, r, minusculo
-letras/caracter608.png, r, minusculo
-letras/caracter609.png, r, minusculo
-letras/caracter610.png, r, minusculo
-letras/caracter611.png, r, minusculo
-letras/caracter612.png, r, minusculo
-letras/caracter613.png, c, minusculo
-letras/caracter614.png, c, minusculo
-letras/caracter615.png, c, minusculo
-letras/caracter616.png, c, minusculo
-letras/caracter617.png, c, minusculo
-letras/caracter618.png, c, minusculo
-letras/caracter619.png, c, minusculo
-letras/caracter620.png, c, minusculo
-letras/caracter621.png, c, minusculo
-letras/caracter622.png, c, minusculo
-letras/caracter623.png, c, minusculo
-letras/caracter624.png, c, minusculo
-letras/caracter625.png, c, minusculo
-letras/caracter626.png, c, minusculo
-letras/caracter627.png, c, minusculo
-letras/caracter628.png, c, minusculo
-letras/caracter629.png, c, minusculo
-letras/caracter630.png, c, minusculo
-letras/caracter631.png, c, minusculo
-letras/caracter632.png, U, maiusculo
-letras/caracter633.png, F, maiusculo
-letras/caracter634.png, F, maiusculo
-letras/caracter635.png, F, maiusculo
-letras/caracter636.png, F, maiusculo
-letras/caracter637.png, F, maiusculo
-letras/caracter638.png, F, maiusculo
-letras/caracter639.png, F, maiusculo
-letras/caracter640.png, F, maiusculo
-letras/caracter641.png, F, maiusculo
-letras/caracter642.png, F, maiusculo
-letras/caracter643.png, u, minusculo
-letras/caracter644.png, u, minusculo
-letras/caracter645.png, u, minusculo
-letras/caracter646.png, u, minusculo
-letras/caracter647.png, u, minusculo
-letras/caracter648.png, u, minusculo
-letras/caracter649.png, u, minusculo
-letras/caracter650.png, u, minusculo
-letras/caracter651.png, u, minusculo
-letras/caracter652.png, u, minusculo
-letras/caracter653.png, u, minusculo
-letras/caracter654.png, u, minusculo
-letras/caracter655.png, u, minusculo
-letras/caracter656.png, u, minusculo
-letras/caracter657.png, u, minusculo
-letras/caracter658.png, u, minusculo
-letras/caracter659.png, u, minusculo
-letras/caracter660.png, u, minusculo
-letras/caracter661.png, u, minusculo
-letras/caracter662.png, u, minusculo
-letras/caracter663.png, u, minusculo
-letras/caracter664.png, u, minusculo
-letras/caracter665.png, u, minusculo
-letras/caracter666.png, u, minusculo
-letras/caracter667.png, N, maiusculo
-letras/caracter668.png, N, maiusculo
-letras/caracter669.png, N, maiusculo
-letras/caracter670.png, N, maiusculo
-letras/caracter671.png, N, maiusculo
-letras/caracter672.png, N, maiusculo
-letras/caracter673.png, N, maiusculo
-letras/caracter674.png, N, maiusculo
-letras/caracter675.png, N, maiusculo
-letras/caracter676.png, N, maiusculo
-letras/caracter677.png, N, maiusculo
-letras/caracter678.png, D, maiusculo
-letras/caracter679.png, D, maiusculo
-letras/caracter680.png, D, maiusculo
-letras/caracter681.png, D, maiusculo
-letras/caracter682.png, D, maiusculo
-letras/caracter683.png, D, maiusculo
-letras/caracter684.png, D, maiusculo
-letras/caracter685.png, D, maiusculo
-letras/caracter686.png, D, maiusculo
-letras/caracter687.png, E, maiusculo
-letras/caracter688.png, E, maiusculo
-letras/caracter689.png, E, maiusculo
-letras/caracter690.png, E, maiusculo
-letras/caracter691.png, E, maiusculo
-letras/caracter692.png, E, maiusculo
-letras/caracter693.png, E, maiusculo
-letras/caracter694.png, E, maiusculo
-letras/caracter695.png, E, maiusculo
-letras/caracter696.png, E, maiusculo
-letras/caracter697.png, E, maiusculo
-letras/caracter698.png, E, maiusculo
-letras/caracter699.png, E, maiusculo
-letras/caracter700.png, E, maiusculo
-letras/caracter701.png, E, maiusculo
-letras/caracter702.png, E, maiusculo
-letras/caracter703.png, 3, numero
-letras/caracter704.png, 3, numero
-letras/caracter705.png, 3, numero
-letras/caracter706.png, 3, numero
-letras/caracter707.png, 3, numero
-letras/caracter708.png, 3, numero
-letras/caracter709.png, 3, numero
-letras/caracter710.png, 3, numero
-letras/caracter711.png, 3, numero
-letras/caracter712.png, 3, numero
-letras/caracter713.png, 3, numero
-letras/caracter714.png, 3, numero
-letras/caracter715.png, 3, numero
-letras/caracter716.png, 3, numero
-letras/caracter717.png, 3, numero
-letras/caracter718.png, 3, numero
-letras/caracter719.png, 3, numero
+path,rotulo,caixa_alta_baixa
+../letras/caracter0.png,f,minusculo
+../letras/caracter1.png,f,minusculo
+../letras/caracter2.png,f,minusculo
+../letras/caracter3.png,f,minusculo
+../letras/caracter4.png,f,minusculo
+../letras/caracter5.png,L,maiusculo
+../letras/caracter6.png,L,maiusculo
+../letras/caracter7.png,L,maiusculo
+../letras/caracter8.png,L,maiusculo
+../letras/caracter9.png,L,maiusculo
+../letras/caracter10.png,L,maiusculo
+../letras/caracter11.png,L,maiusculo
+../letras/caracter12.png,L,maiusculo
+../letras/caracter13.png,L,maiusculo
+../letras/caracter14.png,L,maiusculo
+../letras/caracter15.png,L,maiusculo
+../letras/caracter16.png,L,maiusculo
+../letras/caracter17.png,R,maiusculo
+../letras/caracter18.png,R,maiusculo
+../letras/caracter19.png,R,maiusculo
+../letras/caracter20.png,R,maiusculo
+../letras/caracter21.png,R,maiusculo
+../letras/caracter22.png,R,maiusculo
+../letras/caracter23.png,R,maiusculo
+../letras/caracter24.png,R,maiusculo
+../letras/caracter25.png,R,maiusculo
+../letras/caracter26.png,R,maiusculo
+../letras/caracter27.png,R,maiusculo
+../letras/caracter28.png,R,maiusculo
+../letras/caracter29.png,3,numero
+../letras/caracter30.png,3,numero
+../letras/caracter31.png,3,numero
+../letras/caracter32.png,3,numero
+../letras/caracter33.png,3,numero
+../letras/caracter34.png,3,numero
+../letras/caracter35.png,3,numero
+../letras/caracter36.png,3,numero
+../letras/caracter37.png,3,numero
+../letras/caracter38.png,3,numero
+../letras/caracter39.png,3,numero
+../letras/caracter40.png,3,numero
+../letras/caracter41.png,3,numero
+../letras/caracter42.png,3,numero
+../letras/caracter43.png,3,numero
+../letras/caracter44.png,3,numero
+../letras/caracter45.png,3,numero
+../letras/caracter46.png,c,minusculo
+../letras/caracter47.png,c,minusculo
+../letras/caracter48.png,c,minusculo
+../letras/caracter49.png,c,minusculo
+../letras/caracter50.png,c,minusculo
+../letras/caracter51.png,c,minusculo
+../letras/caracter52.png,c,minusculo
+../letras/caracter53.png,c,minusculo
+../letras/caracter54.png,c,minusculo
+../letras/caracter55.png,c,minusculo
+../letras/caracter56.png,c,minusculo
+../letras/caracter57.png,c,minusculo
+../letras/caracter58.png,c,minusculo
+../letras/caracter59.png,c,minusculo
+../letras/caracter60.png,c,minusculo
+../letras/caracter61.png,c,minusculo
+../letras/caracter62.png,c,minusculo
+../letras/caracter63.png,c,minusculo
+../letras/caracter64.png,c,minusculo
+../letras/caracter65.png,v,minusculo
+../letras/caracter66.png,v,minusculo
+../letras/caracter67.png,v,minusculo
+../letras/caracter68.png,v,minusculo
+../letras/caracter69.png,v,minusculo
+../letras/caracter70.png,v,minusculo
+../letras/caracter71.png,v,minusculo
+../letras/caracter72.png,v,minusculo
+../letras/caracter73.png,v,minusculo
+../letras/caracter74.png,v,minusculo
+../letras/caracter75.png,v,minusculo
+../letras/caracter76.png,v,minusculo
+../letras/caracter77.png,v,minusculo
+../letras/caracter78.png,v,minusculo
+../letras/caracter79.png,v,minusculo
+../letras/caracter80.png,v,minusculo
+../letras/caracter81.png,v,minusculo
+../letras/caracter82.png,v,minusculo
+../letras/caracter83.png,v,minusculo
+../letras/caracter84.png,v,minusculo
+../letras/caracter85.png,v,minusculo
+../letras/caracter86.png,v,minusculo
+../letras/caracter87.png,v,minusculo
+../letras/caracter88.png,v,minusculo
+../letras/caracter89.png,v,minusculo
+../letras/caracter90.png,v,minusculo
+../letras/caracter91.png,v,minusculo
+../letras/caracter92.png,v,minusculo
+../letras/caracter93.png,v,minusculo
+../letras/caracter94.png,v,minusculo
+../letras/caracter95.png,x,minusculo
+../letras/caracter96.png,x,minusculo
+../letras/caracter97.png,x,minusculo
+../letras/caracter98.png,x,minusculo
+../letras/caracter99.png,x,minusculo
+../letras/caracter100.png,x,minusculo
+../letras/caracter101.png,x,minusculo
+../letras/caracter102.png,x,minusculo
+../letras/caracter103.png,x,minusculo
+../letras/caracter104.png,x,minusculo
+../letras/caracter105.png,x,minusculo
+../letras/caracter106.png,x,minusculo
+../letras/caracter107.png,x,minusculo
+../letras/caracter108.png,x,minusculo
+../letras/caracter109.png,x,minusculo
+../letras/caracter110.png,x,minusculo
+../letras/caracter111.png,x,minusculo
+../letras/caracter112.png,x,minusculo
+../letras/caracter113.png,x,minusculo
+../letras/caracter114.png,x,minusculo
+../letras/caracter115.png,h,minusculo
+../letras/caracter116.png,h,minusculo
+../letras/caracter117.png,h,minusculo
+../letras/caracter118.png,h,minusculo
+../letras/caracter119.png,h,minusculo
+../letras/caracter120.png,h,minusculo
+../letras/caracter121.png,h,minusculo
+../letras/caracter122.png,h,minusculo
+../letras/caracter123.png,h,minusculo
+../letras/caracter124.png,h,minusculo
+../letras/caracter125.png,w,minusculo
+../letras/caracter126.png,w,minusculo
+../letras/caracter127.png,w,minusculo
+../letras/caracter128.png,w,minusculo
+../letras/caracter129.png,w,minusculo
+../letras/caracter130.png,w,minusculo
+../letras/caracter131.png,w,minusculo
+../letras/caracter132.png,w,minusculo
+../letras/caracter133.png,w,minusculo
+../letras/caracter134.png,w,minusculo
+../letras/caracter135.png,w,minusculo
+../letras/caracter136.png,w,minusculo
+../letras/caracter137.png,w,minusculo
+../letras/caracter138.png,w,minusculo
+../letras/caracter139.png,w,minusculo
+../letras/caracter140.png,w,minusculo
+../letras/caracter141.png,w,minusculo
+../letras/caracter142.png,w,minusculo
+../letras/caracter143.png,w,minusculo
+../letras/caracter144.png,q,minusculo
+../letras/caracter145.png,q,minusculo
+../letras/caracter146.png,q,minusculo
+../letras/caracter147.png,q,minusculo
+../letras/caracter148.png,q,minusculo
+../letras/caracter149.png,q,minusculo
+../letras/caracter150.png,q,minusculo
+../letras/caracter151.png,q,minusculo
+../letras/caracter152.png,q,minusculo
+../letras/caracter153.png,q,minusculo
+../letras/caracter154.png,q,minusculo
+../letras/caracter155.png,q,minusculo
+../letras/caracter156.png,q,minusculo
+../letras/caracter157.png,q,minusculo
+../letras/caracter158.png,8,numero
+../letras/caracter159.png,8,numero
+../letras/caracter160.png,8,numero
+../letras/caracter161.png,8,numero
+../letras/caracter162.png,8,numero
+../letras/caracter163.png,8,numero
+../letras/caracter164.png,8,numero
+../letras/caracter165.png,8,numero
+../letras/caracter166.png,8,numero
+../letras/caracter167.png,8,numero
+../letras/caracter168.png,8,numero
+../letras/caracter169.png,8,numero
+../letras/caracter170.png,8,numero
+../letras/caracter171.png,8,numero
+../letras/caracter172.png,9,numero
+../letras/caracter173.png,9,numero
+../letras/caracter174.png,9,numero
+../letras/caracter175.png,9,numero
+../letras/caracter176.png,9,numero
+../letras/caracter177.png,9,numero
+../letras/caracter178.png,9,numero
+../letras/caracter179.png,9,numero
+../letras/caracter180.png,9,numero
+../letras/caracter181.png,9,numero
+../letras/caracter182.png,9,numero
+../letras/caracter183.png,9,numero
+../letras/caracter184.png,r,minusculo
+../letras/caracter185.png,r,minusculo
+../letras/caracter186.png,r,minusculo
+../letras/caracter187.png,r,minusculo
+../letras/caracter188.png,r,minusculo
+../letras/caracter189.png,r,minusculo
+../letras/caracter190.png,r,minusculo
+../letras/caracter191.png,r,minusculo
+../letras/caracter192.png,r,minusculo
+../letras/caracter193.png,r,minusculo
+../letras/caracter194.png,r,minusculo
+../letras/caracter195.png,r,minusculo
+../letras/caracter196.png,r,minusculo
+../letras/caracter197.png,r,minusculo
+../letras/caracter198.png,r,minusculo
+../letras/caracter199.png,r,minusculo
+../letras/caracter200.png,g,minusculo
+../letras/caracter201.png,g,minusculo
+../letras/caracter202.png,g,minusculo
+../letras/caracter203.png,g,minusculo
+../letras/caracter204.png,g,minusculo
+../letras/caracter205.png,g,minusculo
+../letras/caracter206.png,g,minusculo
+../letras/caracter207.png,g,minusculo
+../letras/caracter208.png,g,minusculo
+../letras/caracter209.png,g,minusculo
+../letras/caracter210.png,g,minusculo
+../letras/caracter211.png,g,minusculo
+../letras/caracter212.png,g,minusculo
+../letras/caracter213.png,y,minusculo
+../letras/caracter214.png,y,minusculo
+../letras/caracter215.png,y,minusculo
+../letras/caracter216.png,y,minusculo
+../letras/caracter217.png,y,minusculo
+../letras/caracter218.png,y,minusculo
+../letras/caracter219.png,y,minusculo
+../letras/caracter220.png,y,minusculo
+../letras/caracter221.png,y,minusculo
+../letras/caracter222.png,y,minusculo
+../letras/caracter223.png,y,minusculo
+../letras/caracter224.png,y,minusculo
+../letras/caracter225.png,y,minusculo
+../letras/caracter226.png,y,minusculo
+../letras/caracter227.png,y,minusculo
+../letras/caracter228.png,y,minusculo
+../letras/caracter229.png,y,minusculo
+../letras/caracter230.png,y,minusculo
+../letras/caracter231.png,y,minusculo
+../letras/caracter232.png,y,minusculo
+../letras/caracter233.png,y,minusculo
+../letras/caracter234.png,y,minusculo
+../letras/caracter235.png,y,minusculo
+../letras/caracter236.png,y,minusculo
+../letras/caracter237.png,G,maiusculo
+../letras/caracter238.png,G,maiusculo
+../letras/caracter239.png,G,maiusculo
+../letras/caracter240.png,G,maiusculo
+../letras/caracter241.png,G,maiusculo
+../letras/caracter242.png,G,maiusculo
+../letras/caracter243.png,G,maiusculo
+../letras/caracter244.png,G,maiusculo
+../letras/caracter245.png,G,maiusculo
+../letras/caracter246.png,G,maiusculo
+../letras/caracter247.png,G,maiusculo
+../letras/caracter248.png,G,maiusculo
+../letras/caracter249.png,A,maiusculo
+../letras/caracter250.png,A,maiusculo
+../letras/caracter251.png,A,maiusculo
+../letras/caracter252.png,A,maiusculo
+../letras/caracter253.png,A,maiusculo
+../letras/caracter254.png,A,maiusculo
+../letras/caracter255.png,A,maiusculo
+../letras/caracter256.png,A,maiusculo
+../letras/caracter257.png,A,maiusculo
+../letras/caracter258.png,A,maiusculo
+../letras/caracter259.png,A,maiusculo
+../letras/caracter260.png,A,maiusculo
+../letras/caracter261.png,A,maiusculo
+../letras/caracter262.png,A,maiusculo
+../letras/caracter263.png,A,maiusculo
+../letras/caracter264.png,A,maiusculo
+../letras/caracter265.png,N,maiusculo
+../letras/caracter266.png,N,maiusculo
+../letras/caracter267.png,N,maiusculo
+../letras/caracter268.png,N,maiusculo
+../letras/caracter269.png,N,maiusculo
+../letras/caracter270.png,N,maiusculo
+../letras/caracter271.png,N,maiusculo
+../letras/caracter272.png,N,maiusculo
+../letras/caracter273.png,N,maiusculo
+../letras/caracter274.png,N,maiusculo
+../letras/caracter275.png,N,maiusculo
+../letras/caracter276.png,2,numero
+../letras/caracter277.png,2,numero
+../letras/caracter278.png,2,numero
+../letras/caracter279.png,2,numero
+../letras/caracter280.png,2,numero
+../letras/caracter281.png,2,numero
+../letras/caracter282.png,T,maiusculo
+../letras/caracter283.png,T,maiusculo
+../letras/caracter284.png,T,maiusculo
+../letras/caracter285.png,T,maiusculo
+../letras/caracter286.png,T,maiusculo
+../letras/caracter287.png,T,maiusculo
+../letras/caracter288.png,T,maiusculo
+../letras/caracter289.png,T,maiusculo
+../letras/caracter290.png,T,maiusculo
+../letras/caracter291.png,T,maiusculo
+../letras/caracter292.png,T,maiusculo
+../letras/caracter293.png,T,maiusculo
+../letras/caracter294.png,T,maiusculo
+../letras/caracter295.png,T,maiusculo
+../letras/caracter296.png,Q,maiusculo
+../letras/caracter297.png,Q,maiusculo
+../letras/caracter298.png,Q,maiusculo
+../letras/caracter299.png,Q,maiusculo
+../letras/caracter300.png,Q,maiusculo
+../letras/caracter301.png,Q,maiusculo
+../letras/caracter302.png,Q,maiusculo
+../letras/caracter303.png,Q,maiusculo
+../letras/caracter304.png,B,maiusculo
+../letras/caracter305.png,B,maiusculo
+../letras/caracter306.png,B,maiusculo
+../letras/caracter307.png,B,maiusculo
+../letras/caracter308.png,B,maiusculo
+../letras/caracter309.png,B,maiusculo
+../letras/caracter310.png,B,maiusculo
+../letras/caracter311.png,B,maiusculo
+../letras/caracter312.png,B,maiusculo
+../letras/caracter313.png,B,maiusculo
+../letras/caracter314.png,B,maiusculo
+../letras/caracter315.png,B,maiusculo
+../letras/caracter316.png,B,maiusculo
+../letras/caracter317.png,6,numero
+../letras/caracter318.png,6,numero
+../letras/caracter319.png,6,numero
+../letras/caracter320.png,6,numero
+../letras/caracter321.png,6,numero
+../letras/caracter322.png,6,numero
+../letras/caracter323.png,6,numero
+../letras/caracter324.png,6,numero
+../letras/caracter325.png,6,numero
+../letras/caracter326.png,6,numero
+../letras/caracter327.png,6,numero
+../letras/caracter328.png,6,numero
+../letras/caracter329.png,6,numero
+../letras/caracter330.png,l,minusculo
+../letras/caracter331.png,u,minusculo
+../letras/caracter332.png,u,minusculo
+../letras/caracter333.png,u,minusculo
+../letras/caracter334.png,u,minusculo
+../letras/caracter335.png,u,minusculo
+../letras/caracter336.png,u,minusculo
+../letras/caracter337.png,u,minusculo
+../letras/caracter338.png,u,minusculo
+../letras/caracter339.png,u,minusculo
+../letras/caracter340.png,u,minusculo
+../letras/caracter341.png,u,minusculo
+../letras/caracter342.png,u,minusculo
+../letras/caracter343.png,u,minusculo
+../letras/caracter344.png,u,minusculo
+../letras/caracter345.png,u,minusculo
+../letras/caracter346.png,u,minusculo
+../letras/caracter347.png,u,minusculo
+../letras/caracter348.png,u,minusculo
+../letras/caracter349.png,u,minusculo
+../letras/caracter350.png,u,minusculo
+../letras/caracter351.png,u,minusculo
+../letras/caracter352.png,u,minusculo
+../letras/caracter353.png,u,minusculo
+../letras/caracter354.png,u,minusculo
+../letras/caracter355.png,H,maiusculo
+../letras/caracter356.png,H,maiusculo
+../letras/caracter357.png,H,maiusculo
+../letras/caracter358.png,H,maiusculo
+../letras/caracter359.png,H,maiusculo
+../letras/caracter360.png,H,maiusculo
+../letras/caracter361.png,H,maiusculo
+../letras/caracter362.png,H,maiusculo
+../letras/caracter363.png,H,maiusculo
+../letras/caracter364.png,H,maiusculo
+../letras/caracter365.png,H,maiusculo
+../letras/caracter366.png,H,maiusculo
+../letras/caracter367.png,H,maiusculo
+../letras/caracter368.png,H,maiusculo
+../letras/caracter369.png,H,maiusculo
+../letras/caracter370.png,H,maiusculo
+../letras/caracter371.png,H,maiusculo
+../letras/caracter372.png,H,maiusculo
+../letras/caracter373.png,5,numero
+../letras/caracter374.png,5,numero
+../letras/caracter375.png,5,numero
+../letras/caracter376.png,5,numero
+../letras/caracter377.png,5,numero
+../letras/caracter378.png,5,numero
+../letras/caracter379.png,5,numero
+../letras/caracter380.png,5,numero
+../letras/caracter381.png,5,numero
+../letras/caracter382.png,5,numero
+../letras/caracter383.png,5,numero
+../letras/caracter384.png,5,numero
+../letras/caracter385.png,M,maiusculo
+../letras/caracter386.png,M,maiusculo
+../letras/caracter387.png,M,maiusculo
+../letras/caracter388.png,M,maiusculo
+../letras/caracter389.png,M,maiusculo
+../letras/caracter390.png,M,maiusculo
+../letras/caracter391.png,M,maiusculo
+../letras/caracter392.png,M,maiusculo
+../letras/caracter393.png,M,maiusculo
+../letras/caracter394.png,k,minusculo
+../letras/caracter395.png,k,minusculo
+../letras/caracter396.png,k,minusculo
+../letras/caracter397.png,k,minusculo
+../letras/caracter398.png,k,minusculo
+../letras/caracter399.png,k,minusculo
+../letras/caracter400.png,k,minusculo
+../letras/caracter401.png,k,minusculo
+../letras/caracter402.png,k,minusculo
+../letras/caracter403.png,k,minusculo
+../letras/caracter404.png,k,minusculo
+../letras/caracter405.png,k,minusculo
+../letras/caracter406.png,k,minusculo
+../letras/caracter407.png,k,minusculo
+../letras/caracter408.png,k,minusculo
+../letras/caracter409.png,k,minusculo
+../letras/caracter410.png,k,minusculo
+../letras/caracter411.png,k,minusculo
+../letras/caracter412.png,k,minusculo
+../letras/caracter413.png,k,minusculo
+../letras/caracter414.png,k,minusculo
+../letras/caracter415.png,k,minusculo
+../letras/caracter416.png,k,minusculo
+../letras/caracter417.png,4,numero
+../letras/caracter418.png,4,numero
+../letras/caracter419.png,4,numero
+../letras/caracter420.png,4,numero
+../letras/caracter421.png,4,numero
+../letras/caracter422.png,4,numero
+../letras/caracter423.png,4,numero
+../letras/caracter424.png,4,numero
+../letras/caracter425.png,4,numero
+../letras/caracter426.png,4,numero
+../letras/caracter427.png,4,numero
+../letras/caracter428.png,4,numero
+../letras/caracter429.png,d,minusculo
+../letras/caracter430.png,d,minusculo
+../letras/caracter431.png,d,minusculo
+../letras/caracter432.png,d,minusculo
+../letras/caracter433.png,d,minusculo
+../letras/caracter434.png,d,minusculo
+../letras/caracter435.png,d,minusculo
+../letras/caracter436.png,d,minusculo
+../letras/caracter437.png,p,minusculo
+../letras/caracter438.png,p,minusculo
+../letras/caracter439.png,p,minusculo
+../letras/caracter440.png,p,minusculo
+../letras/caracter441.png,p,minusculo
+../letras/caracter442.png,p,minusculo
+../letras/caracter443.png,p,minusculo
+../letras/caracter444.png,p,minusculo
+../letras/caracter445.png,p,minusculo
+../letras/caracter446.png,p,minusculo
+../letras/caracter447.png,p,minusculo
+../letras/caracter448.png,p,minusculo
+../letras/caracter449.png,p,minusculo
+../letras/caracter450.png,p,minusculo
+../letras/caracter451.png,p,minusculo
+../letras/caracter452.png,p,minusculo
+../letras/caracter453.png,p,minusculo
+../letras/caracter454.png,p,minusculo
+../letras/caracter455.png,p,minusculo
+../letras/caracter456.png,p,minusculo
+../letras/caracter457.png,p,minusculo
+../letras/caracter458.png,p,minusculo
+../letras/caracter459.png,p,minusculo
+../letras/caracter460.png,p,minusculo
+../letras/caracter461.png,p,minusculo
+../letras/caracter462.png,p,minusculo
+../letras/caracter463.png,p,minusculo
+../letras/caracter464.png,p,minusculo
+../letras/caracter465.png,p,minusculo
+../letras/caracter466.png,p,minusculo
+../letras/caracter467.png,b,minusculo
+../letras/caracter468.png,b,minusculo
+../letras/caracter469.png,b,minusculo
+../letras/caracter470.png,b,minusculo
+../letras/caracter471.png,b,minusculo
+../letras/caracter472.png,b,minusculo
+../letras/caracter473.png,b,minusculo
+../letras/caracter474.png,b,minusculo
+../letras/caracter475.png,b,minusculo
+../letras/caracter476.png,b,minusculo
+../letras/caracter477.png,b,minusculo
+../letras/caracter478.png,7,numero
+../letras/caracter479.png,7,numero
+../letras/caracter480.png,7,numero
+../letras/caracter481.png,7,numero
+../letras/caracter482.png,7,numero
+../letras/caracter483.png,7,numero
+../letras/caracter484.png,7,numero
+../letras/caracter485.png,7,numero
+../letras/caracter486.png,7,numero
+../letras/caracter487.png,7,numero
+../letras/caracter488.png,7,numero
+../letras/caracter489.png,7,numero
+../letras/caracter490.png,7,numero
+../letras/caracter491.png,7,numero
+../letras/caracter492.png,7,numero
+../letras/caracter493.png,P,maiusculo
+../letras/caracter494.png,a,minusculo
+../letras/caracter495.png,a,minusculo
+../letras/caracter496.png,a,minusculo
+../letras/caracter497.png,a,minusculo
+../letras/caracter498.png,a,minusculo
+../letras/caracter499.png,a,minusculo
+../letras/caracter500.png,a,minusculo
+../letras/caracter501.png,a,minusculo
+../letras/caracter502.png,a,minusculo
+../letras/caracter503.png,a,minusculo
+../letras/caracter504.png,a,minusculo
+../letras/caracter505.png,a,minusculo
+../letras/caracter506.png,a,minusculo
+../letras/caracter507.png,a,minusculo
+../letras/caracter508.png,a,minusculo
+../letras/caracter509.png,a,minusculo
+../letras/caracter510.png,a,minusculo
+../letras/caracter511.png,a,minusculo
+../letras/caracter512.png,z,minusculo
+../letras/caracter513.png,z,minusculo
+../letras/caracter514.png,z,minusculo
+../letras/caracter515.png,z,minusculo
+../letras/caracter516.png,z,minusculo
+../letras/caracter517.png,z,minusculo
+../letras/caracter518.png,z,minusculo
+../letras/caracter519.png,z,minusculo
+../letras/caracter520.png,z,minusculo
+../letras/caracter521.png,z,minusculo
+../letras/caracter522.png,z,minusculo
+../letras/caracter523.png,z,minusculo
+../letras/caracter524.png,z,minusculo
+../letras/caracter525.png,z,minusculo
+../letras/caracter526.png,z,minusculo
+../letras/caracter527.png,z,minusculo
+../letras/caracter528.png,z,minusculo
+../letras/caracter529.png,z,minusculo
+../letras/caracter530.png,z,minusculo
+../letras/caracter531.png,z,minusculo
+../letras/caracter532.png,1,numero
+../letras/caracter533.png,1,numero
+../letras/caracter534.png,1,numero
+../letras/caracter535.png,1,numero
+../letras/caracter536.png,1,numero
+../letras/caracter537.png,1,numero
+../letras/caracter538.png,1,numero
+../letras/caracter539.png,1,numero
+../letras/caracter540.png,1,numero
+../letras/caracter541.png,1,numero
+../letras/caracter542.png,1,numero
+../letras/caracter543.png,1,numero
+../letras/caracter544.png,1,numero
+../letras/caracter545.png,1,numero
+../letras/caracter546.png,1,numero
+../letras/caracter547.png,1,numero
+../letras/caracter548.png,1,numero
+../letras/caracter549.png,1,numero
+../letras/caracter550.png,1,numero
+../letras/caracter551.png,t,minusculo
+../letras/caracter552.png,t,minusculo
+../letras/caracter553.png,t,minusculo
+../letras/caracter554.png,t,minusculo
+../letras/caracter555.png,t,minusculo
+../letras/caracter556.png,t,minusculo
+../letras/caracter557.png,t,minusculo
+../letras/caracter558.png,t,minusculo
+../letras/caracter559.png,t,minusculo
+../letras/caracter560.png,E,maiusculo
+../letras/caracter561.png,E,maiusculo
+../letras/caracter562.png,E,maiusculo
+../letras/caracter563.png,E,maiusculo
+../letras/caracter564.png,E,maiusculo
+../letras/caracter565.png,E,maiusculo
+../letras/caracter566.png,E,maiusculo
+../letras/caracter567.png,E,maiusculo
+../letras/caracter568.png,E,maiusculo
+../letras/caracter569.png,E,maiusculo
+../letras/caracter570.png,E,maiusculo
+../letras/caracter571.png,E,maiusculo
+../letras/caracter572.png,E,maiusculo
+../letras/caracter573.png,E,maiusculo
+../letras/caracter574.png,E,maiusculo
+../letras/caracter575.png,E,maiusculo
+../letras/caracter576.png,s,minusculo
+../letras/caracter577.png,s,minusculo
+../letras/caracter578.png,s,minusculo
+../letras/caracter579.png,s,minusculo
+../letras/caracter580.png,s,minusculo
+../letras/caracter581.png,s,minusculo
+../letras/caracter582.png,s,minusculo
+../letras/caracter583.png,s,minusculo
+../letras/caracter584.png,s,minusculo
+../letras/caracter585.png,s,minusculo
+../letras/caracter586.png,s,minusculo
+../letras/caracter587.png,s,minusculo
+../letras/caracter588.png,s,minusculo
+../letras/caracter589.png,s,minusculo
+../letras/caracter590.png,s,minusculo
+../letras/caracter591.png,s,minusculo
+../letras/caracter592.png,s,minusculo
+../letras/caracter593.png,s,minusculo
+../letras/caracter594.png,s,minusculo
+../letras/caracter595.png,s,minusculo
+../letras/caracter596.png,s,minusculo
+../letras/caracter597.png,s,minusculo
+../letras/caracter598.png,s,minusculo
+../letras/caracter599.png,s,minusculo
+../letras/caracter600.png,s,minusculo
+../letras/caracter601.png,s,minusculo
+../letras/caracter602.png,s,minusculo
+../letras/caracter603.png,s,minusculo
+../letras/caracter604.png,s,minusculo
+../letras/caracter605.png,s,minusculo
+../letras/caracter606.png,s,minusculo
+../letras/caracter607.png,U,maiusculo
+../letras/caracter608.png,F,maiusculo
+../letras/caracter609.png,F,maiusculo
+../letras/caracter610.png,F,maiusculo
+../letras/caracter611.png,F,maiusculo
+../letras/caracter612.png,F,maiusculo
+../letras/caracter613.png,F,maiusculo
+../letras/caracter614.png,F,maiusculo
+../letras/caracter615.png,F,maiusculo
+../letras/caracter616.png,F,maiusculo
+../letras/caracter617.png,F,maiusculo
+../letras/caracter618.png,e,minusculo
+../letras/caracter619.png,e,minusculo
+../letras/caracter620.png,e,minusculo
+../letras/caracter621.png,e,minusculo
+../letras/caracter622.png,e,minusculo
+../letras/caracter623.png,e,minusculo
+../letras/caracter624.png,e,minusculo
+../letras/caracter625.png,e,minusculo
+../letras/caracter626.png,e,minusculo
+../letras/caracter627.png,e,minusculo
+../letras/caracter628.png,e,minusculo
+../letras/caracter629.png,e,minusculo
+../letras/caracter630.png,n,minusculo
+../letras/caracter631.png,n,minusculo
+../letras/caracter632.png,n,minusculo
+../letras/caracter633.png,n,minusculo
+../letras/caracter634.png,n,minusculo
+../letras/caracter635.png,n,minusculo
+../letras/caracter636.png,n,minusculo
+../letras/caracter637.png,n,minusculo
+../letras/caracter638.png,n,minusculo
+../letras/caracter639.png,n,minusculo
+../letras/caracter640.png,n,minusculo
+../letras/caracter641.png,n,minusculo
+../letras/caracter642.png,n,minusculo
+../letras/caracter643.png,n,minusculo
+../letras/caracter644.png,n,minusculo
+../letras/caracter645.png,n,minusculo
+../letras/caracter646.png,n,minusculo
+../letras/caracter647.png,n,minusculo
+../letras/caracter648.png,n,minusculo
+../letras/caracter649.png,n,minusculo
+../letras/caracter650.png,n,minusculo
+../letras/caracter651.png,n,minusculo
+../letras/caracter652.png,J,maiusculo
+../letras/caracter653.png,J,maiusculo
+../letras/caracter654.png,J,maiusculo
+../letras/caracter655.png,J,maiusculo
+../letras/caracter656.png,J,maiusculo
+../letras/caracter657.png,J,maiusculo
+../letras/caracter658.png,J,maiusculo
+../letras/caracter659.png,J,maiusculo
+../letras/caracter660.png,J,maiusculo
+../letras/caracter661.png,J,maiusculo
+../letras/caracter662.png,i,minusculo
+../letras/caracter663.png,i,minusculo
+../letras/caracter664.png,i,minusculo
+../letras/caracter665.png,i,minusculo
+../letras/caracter666.png,i,minusculo
+../letras/caracter667.png,i,minusculo
+../letras/caracter668.png,i,minusculo
+../letras/caracter669.png,i,minusculo
+../letras/caracter670.png,i,minusculo
+../letras/caracter671.png,i,minusculo
+../letras/caracter672.png,o,minusculo
+../letras/caracter673.png,o,minusculo
+../letras/caracter674.png,o,minusculo
+../letras/caracter675.png,o,minusculo
+../letras/caracter676.png,o,minusculo
+../letras/caracter677.png,o,minusculo
+../letras/caracter678.png,o,minusculo
+../letras/caracter679.png,o,minusculo
+../letras/caracter680.png,o,minusculo
+../letras/caracter681.png,o,minusculo
+../letras/caracter682.png,o,minusculo
+../letras/caracter683.png,o,minusculo
+../letras/caracter684.png,o,minusculo
+../letras/caracter685.png,o,minusculo
+../letras/caracter686.png,o,minusculo
+../letras/caracter687.png,o,minusculo
+../letras/caracter688.png,j,minusculo
+../letras/caracter689.png,j,minusculo
+../letras/caracter690.png,j,minusculo
+../letras/caracter691.png,j,minusculo
+../letras/caracter692.png,j,minusculo
+../letras/caracter693.png,j,minusculo
+../letras/caracter694.png,j,minusculo
+../letras/caracter695.png,j,minusculo
+../letras/caracter696.png,j,minusculo
+../letras/caracter697.png,j,minusculo
+../letras/caracter698.png,j,minusculo
+../letras/caracter699.png,m,minusculo
+../letras/caracter700.png,m,minusculo
+../letras/caracter701.png,m,minusculo
+../letras/caracter702.png,m,minusculo
+../letras/caracter703.png,m,minusculo
+../letras/caracter704.png,m,minusculo
+../letras/caracter705.png,m,minusculo
+../letras/caracter706.png,m,minusculo
+../letras/caracter707.png,m,minusculo
+../letras/caracter708.png,m,minusculo
+../letras/caracter709.png,m,minusculo
+../letras/caracter710.png,W,maiusculo
+../letras/caracter711.png,D,maiusculo
+../letras/caracter712.png,D,maiusculo
+../letras/caracter713.png,D,maiusculo
+../letras/caracter714.png,D,maiusculo
+../letras/caracter715.png,D,maiusculo
+../letras/caracter716.png,D,maiusculo
+../letras/caracter717.png,D,maiusculo
+../letras/caracter718.png,D,maiusculo
+../letras/caracter719.png,D,maiusculo

@@ -39,11 +39,13 @@ from sklearn.externals import joblib
 def apply_filter(img, v = 1):
 	if v == 1:
 		return remove_small_blobs(img, background=255)
-	else:
+	elif v == 2:
 		selem = disk(1.4)
-		dilatado = dilation(remove_small_blobs(img[ : , : , 1], background=255, min_area=10), selem)
+		dilatado = dilation(remove_small_blobs(img[ : , : , 0], background=255, min_area=10), selem)
 		unblobbed2 = remove_small_blobs(erosion(dilatado, selem), background=255, min_area=45)
 		return rank.mean(unblobbed2, selem=selem)
+	else: # 3
+		pass
 
 # Funções de comparação entre imagens
 def mse(imageA, imageB):
@@ -107,7 +109,7 @@ def save_images(letter_dict):
 	i=0
 
 	with open('../letras.csv', 'w+') as f:
-		f.write("path, rotulo, caixa_alta_baixa\n")
+		f.write("path,rotulo,caixa_alta_baixa\n")
 
 	for letra in letter_dict:
 		for imagem in letter_dict[letra]:
@@ -115,12 +117,12 @@ def save_images(letter_dict):
 			im.save("../letras/caracter" + str(i) + ".png")
 			with open('../letras.csv', 'a+') as f:
 				if letra.istitle():
-					f.write("letras/caracter" + str(i) + ".png, " + letra + ", maiusculo\n")
+					f.write("../letras/caracter" + str(i) + ".png," + letra + ",maiusculo\n")
 				else:
 					if letra.isdigit():
-						f.write("letras/caracter" + str(i) + ".png, " + letra + ", numero\n")
+						f.write("../letras/caracter" + str(i) + ".png," + letra + ",numero\n")
 					else:
-						f.write("letras/caracter" + str(i) + ".png, " + letra + ", minusculo\n")
+						f.write("../letras/caracter" + str(i) + ".png," + letra + ",minusculo\n")
 			i = i + 1
 
 def crop_char(img, n_char, x1 = 0, x2 = 50):
@@ -149,8 +151,8 @@ def ler_letras(file):
 	with open(file) as csvfile:
 		reader = csv.DictReader(csvfile, delimiter=',')
 		for row in reader:
-			dic[row['path'].strip()] = {'rotulo':row[' rotulo'].strip(),
-										'caixa':row[' caixa_alta_baixa'].strip()}
+			dic[row['path'].strip()] = {'rotulo':row['rotulo'],
+										'caixa':row['caixa_alta_baixa']}
 		return [list(dic.keys()), dic]
 
 def checar_combinacoes(permuta, dic):
@@ -294,35 +296,6 @@ def super_score3(imgA, imgB):
 	mse_canny, iss_canny, mse_canny_centro, iss_canny_centro,\
 	mse_skeleton, iss_skeleton, mse_skeleton_centro, iss_skeleton_centro = extract_stats(imgA, imgB)
 
-	"""
-	super_score3
-	(Intercept)          -3.9202
-	ISS                   0.8420
-	ISS_centro            5.8454
-	MSE_canny            -1.7802
-	ISS_canny             3.0313
-	MSE_canny_centro     17.6900
-	ISS_canny_centro      7.0150
-	MSE_skeleton        -12.2337
-	ISS_skeleton         -4.2933
-	MSE_skeleton_centro  -5.2991
-	ISS_skeleton_centro  -1.5924
-
-	super_score3...2
-	Class 1 :
-	2.98 +
-	[MSE] * 0    +
-	[MSE_centro] * 0    +
-	[ISS_centro] * -0.64 +
-	[MSE_canny] * -6.92 +
-	[ISS_canny] * -2.57 +
-	[MSE_canny_centro] * 9.99 +
-	[ISS_canny_centro] * 3.01 +
-	[ISS_skeleton] * -0.78 +
-	[MSE_skeleton_centro] * 2.86 +
-	[ISS_skeleton_centro] * -0.83
-	"""
-
 	f = (2.98 -0.64*iss_centro - 6.92*mse_canny -2.57*iss_canny
 		+ 9.99*mse_canny_centro +3.01*iss_canny_centro
 		-0.78*iss_skeleton +2.86*mse_skeleton_centro
@@ -424,31 +397,35 @@ def modela_captcha(captcha, tipo = ""):
 	resposta = ""
 
 	clf = joblib.load('classifier_' + tipo + '.pkl')
+	if ( tipo != "image" ):
+		for imgA in [a, b, c, d, e, f]:
+			dic = {}
+			for base in letters_dict:
 
-	for imgA in [a, b, c, d, e, f]:
-		dic = {}
-		for base in letters_dict:
+				imgB = skio.imread(base)
 
-			imgB = skio.imread("../" + base)
+				mse, iss, mse_centro, iss_centro, mse_canny, iss_canny, mse_canny_centro, iss_canny_centro,\
+				mse_skeleton, iss_skeleton, mse_skeleton_centro, iss_skeleton_centro = extract_stats(imgA, imgB)
 
-			mse, iss, mse_centro, iss_centro, mse_canny, iss_canny, mse_canny_centro, iss_canny_centro,\
-			mse_skeleton, iss_skeleton, mse_skeleton_centro, iss_skeleton_centro = extract_stats(imgA, imgB)
+				if ( clf.predict( [[mse, iss, mse_centro, iss_centro, mse_canny, iss_canny,
+				mse_canny_centro, iss_canny_centro, mse_skeleton, iss_skeleton, mse_skeleton_centro, iss_skeleton_centro]] ) ):
 
-			if ( clf.predict( [[mse, iss, mse_centro, iss_centro, mse_canny, iss_canny,
-			mse_canny_centro, iss_canny_centro, mse_skeleton, iss_skeleton, mse_skeleton_centro, iss_skeleton_centro]] ) ):
+					if (letters_dict[base]['rotulo'] in dic):
+						dic[ letters_dict[base]['rotulo'] ] += 1
+					else:
+						dic[ letters_dict[base]['rotulo'] ] = 1
 
-				if (letters_dict[base]['rotulo'] in dic):
-					dic[ letters_dict[base]['rotulo'] ] += 1
-				else:
-					dic[ letters_dict[base]['rotulo'] ] = 1
+			if (dic):
+				melhor = max(dic.items(), key=operator.itemgetter(1))[0]
+				resposta = resposta + melhor
+			else:
+				resposta = resposta + " "
 
-		if (dic):
-			melhor = max(dic.items(), key=operator.itemgetter(1))[0]
-			resposta = resposta + melhor
-		else:
-			resposta = resposta + " "
-
-	return resposta
+		return resposta
+	else :
+		for imgA in [a, b, c, d, e, f]:
+			resposta = resposta + str(clf.predict([item for sublist in imgA.tolist() for item in sublist]))
+		return resposta
 
 def tsrct_captcha(captcha):
 
