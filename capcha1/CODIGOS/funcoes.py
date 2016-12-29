@@ -30,9 +30,22 @@ from skimage.measure import regionprops
 from skimage.filters import rank
 from skimage.measure import compare_ssim, compare_mse
 from sklearn.preprocessing import binarize
+from skimage.morphology import dilation, erosion
+from skimage.morphology import disk
 
 # pacotes de suporte para ML
 from sklearn.externals import joblib
+
+def apply_filter(img, v = 1):
+	if v == 1:
+		return remove_small_blobs(img, background=255)
+	elif v == 2:
+		selem = disk(1.4)
+		dilatado = dilation(remove_small_blobs(img[ : , : , 0], background=255, min_area=10), selem)
+		unblobbed2 = remove_small_blobs(erosion(dilatado, selem), background=255, min_area=25)
+		return rank.mean(unblobbed2, selem=selem)
+	else: # 3
+		pass
 
 # Funções de comparação entre imagens
 def mse(imageA, imageB):
@@ -96,7 +109,7 @@ def save_images(letter_dict):
 	i=0
 
 	with open('../letras.csv', 'w+') as f:
-		f.write("path, rotulo, caixa_alta_baixa\n")
+		f.write("path,rotulo,caixa_alta_baixa\n")
 
 	for letra in letter_dict:
 		for imagem in letter_dict[letra]:
@@ -104,12 +117,12 @@ def save_images(letter_dict):
 			im.save("../letras/caracter" + str(i) + ".png")
 			with open('../letras.csv', 'a+') as f:
 				if letra.istitle():
-					f.write("letras/caracter" + str(i) + ".png, " + letra + ", maiusculo\n")
+					f.write("../letras/caracter" + str(i) + ".png," + letra + ",maiusculo\n")
 				else:
 					if letra.isdigit():
-						f.write("letras/caracter" + str(i) + ".png, " + letra + ", numero\n")
+						f.write("../letras/caracter" + str(i) + ".png," + letra + ",numero\n")
 					else:
-						f.write("letras/caracter" + str(i) + ".png, " + letra + ", minusculo\n")
+						f.write("../letras/caracter" + str(i) + ".png," + letra + ",minusculo\n")
 			i = i + 1
 
 def crop_char(img, n_char, x1 = 0, x2 = 50):
@@ -138,8 +151,8 @@ def ler_letras(file):
 	with open(file) as csvfile:
 		reader = csv.DictReader(csvfile, delimiter=',')
 		for row in reader:
-			dic[row['path'].strip()] = {'rotulo':row[' rotulo'].strip(),
-										'caixa':row[' caixa_alta_baixa'].strip()}
+			dic[row['path'].strip()] = {'rotulo':row['rotulo'],
+										'caixa':row['caixa_alta_baixa']}
 		return [list(dic.keys()), dic]
 
 def checar_combinacoes(permuta, dic):
@@ -173,34 +186,57 @@ def remove_small_blobs(bw_img, min_area=35, **label_kwargs):
 			new_bw[labels == roi.label] = fg
 
 	return new_bw
+def entropy(signal):
+        '''
+        function returns entropy of a signal
+        signal must be a 1-D numpy array
+        '''
+        lensig=len(signal)#.size
+        symset=list(set(signal))
+        numsym=len(symset)
+        propab=[np.size(signal[signal==i])/(1.0*lensig) for i in symset]
+        ent=np.sum([p*np.log2(1.0/p) for p in propab])
+        return ent
 
 def extract_stats(imgA, imgB, sigma = 1):
-
 	imgA = remove_small_blobs(imgA, background = 255)
 	imgB = remove_small_blobs(imgB, background = 255)
 
 	mse, iss = compare_images(imgA, imgB)
-
 	mse_centro, iss_centro = compare_images(imgA[10:40,], imgB[10:40,])
 
-	imgA, imgB = imgA[ : , : , 0], imgB[ : , : , 0] # transformada para 2-dimensional para canny e skeleton
+	if (len(imgA.shape) == 3):
+		imgA, imgB = imgA[ : , : , 0], imgB[ : , : , 0] # transformada para 2-dimensional para canny e skeleton
 
 	mse_canny, iss_canny = compare_images(feature.canny(imgA, sigma=sigma), feature.canny(imgB, sigma=sigma))
-
 	mse_canny_centro, iss_canny_centro = compare_images(feature.canny(imgA[10:40,], sigma=4), feature.canny(imgB[10:40,], sigma=4))
 
 	maskA1, maskB1 = imgA == 255, imgB == 255 # inverter as imagens e deixar em 0s e 1s
 	maskA0, maskB0 = imgA == 0, imgB == 0
 	imgA[maskA0], imgB[maskB0] = 1, 1
 	imgA[maskA1], imgB[maskB1] = 0, 0
-
 	mse_skeleton, iss_skeleton = compare_images(skeletonize(imgA), skeletonize(imgB))
-
 	mse_skeleton_centro, iss_skeleton_centro = compare_images(skeletonize(imgA[10:40,]), skeletonize(imgB[10:40,]))
+
+	# mean
+	imgA_mean, imgB_mean = [imgA.mean(), imgB.mean()]
+	# variancia
+	imgA_var, imgB_var = [imgA.var(), imgB.var()]
+	# Contraste
+	"imgA_contraste, imgB_contraste ="
+	# Segundo Momento Angular
+	"imgA_angular_momentum, imgB_angular_momentum ="
+	# Entropia
+	imgA_entropy, imgB_entropy = [entropy([item for sublist in imgA.tolist() for item in sublist]),
+								entropy([item for sublist in imgB.tolist() for item in sublist])]
 
 	return [mse, iss, mse_centro, iss_centro,
 			mse_canny, iss_canny, mse_canny_centro, iss_canny_centro,
-			mse_skeleton, iss_skeleton, mse_skeleton_centro, iss_skeleton_centro]
+			mse_skeleton, iss_skeleton, mse_skeleton_centro, iss_skeleton_centro,
+			imgA_mean, imgB_mean, imgA_var, imgB_var,
+			#imgA_contraste, imgB_contraste,
+			#imgA_angular_momentum, imgB_angular_momentum,
+			imgA_entropy, imgB_entropy]
 
 
 def save_combinations(permutes, dic, arquivo = "../combinacoes.txt"):
@@ -209,18 +245,25 @@ def save_combinations(permutes, dic, arquivo = "../combinacoes.txt"):
 	with open(arquivo, 'w+') as f:
 		f.write("resposta,char1,char2,MSE,ISS,MSE_centro,ISS_centro,"+\
 		"MSE_canny,ISS_canny,MSE_canny_centro,ISS_canny_centro,"+\
-		"MSE_skeleton,ISS_skeleton,MSE_skeleton_centro,ISS_skeleton_centro\n")
+		"MSE_skeleton,ISS_skeleton,MSE_skeleton_centro,ISS_skeleton_centro,"+\
+		"imgA_mean,imgB_mean,imgA_var,imgB_var,"+\
+		#"imgA_contraste,imgB_contraste,imgA_angular_momentum,imgB_angular_momentum,"+\
+		"imgA_entropy,imgB_entropy\n")
 
 	for dupla in permutes:
-		imgA = skio.imread("../" + dupla[0])
-		imgB = skio.imread("../" + dupla[1])
+		imgA = skio.imread(dupla[0])
+		imgB = skio.imread(dupla[1])
 		if (dic[dupla[0]]['rotulo'] == dic[dupla[1]]['rotulo']):
 			resposta = 1
 		else:
 			resposta = 0
+
 		mse, iss, mse_centro, iss_centro, \
 		mse_canny, iss_canny, mse_canny_centro, iss_canny_centro, \
-		mse_skeleton, iss_skeleton, mse_skeleton_centro, iss_skeleton_centro = extract_stats(imgA, imgB)
+		mse_skeleton, iss_skeleton, mse_skeleton_centro, iss_skeleton_centro, \
+		imgA_mean, imgB_mean, imgA_var, imgB_var, \
+		imgA_entropy, imgB_entropy = extract_stats(imgA, imgB)
+		#imgA_contraste, imgB_contraste, imgA_angular_momentum, imgB_angular_momentum, \
 
 		# ISS_skeleton e MSE_canny não aparecem na tabela, é preciso arrumar isso
 		with open(arquivo, 'a+') as f:
@@ -229,7 +272,12 @@ def save_combinations(permutes, dic, arquivo = "../combinacoes.txt"):
 					+ "," + str(mse_canny) + "," + str(iss_canny) \
 					+ "," + str(mse_canny_centro) + "," + str(iss_canny_centro)\
 					+ "," + str(mse_skeleton) + "," + str(iss_skeleton) \
-					+ "," + str(mse_skeleton_centro) + "," + str(iss_skeleton_centro) + "\n")
+					+ "," + str(mse_skeleton_centro) + "," + str(iss_skeleton_centro) \
+					+ "," + str(imgA_mean) + "," + str(imgB_mean) \
+					+ "," + str(imgA_var) + "," + str(imgB_var) \
+					#+ "," + str(imgA_contraste) + "," + str(imgB_contraste) \
+					#+ "," + str(imgA_angular_momentum) + "," + str(imgB_angular_momentum) \
+					+ "," + str(imgA_entropy) + "," +  str(imgB_entropy) + "\n")
 
 # Teste do PyTesseract
 def run_tesseract(imgs):
@@ -243,7 +291,6 @@ def run_tesseract(imgs):
 # Novas funções
 #  função de scoragem:
 def super_score(imgA, imgB):
-
 	mse, iss, mse_centro, iss_centro, _, _, _, _, _, _, _, _ = extract_stats(imgA, imgB)
 
 	f =  5.979 -3.201e-05*(mse)  -2.752*(iss) -4.587e-05*(mse_centro)
@@ -254,7 +301,6 @@ def super_score(imgA, imgB):
 
 def super_score2(imgA, imgB):
 	# Codigo de Categorização das Variáveis contínuas
-
 	mse, iss, mse_centro, iss_centro, _, _, _, _, _, _, _, _ = extract_stats(imgA, imgB)
 
 	if (iss_centro > 0 and iss_centro <= 0.20468457663):
@@ -278,39 +324,12 @@ def super_score2(imgA, imgB):
 	return score # a funcao retorna um score em formato numerico de 0 a 100.
 
 def super_score3(imgA, imgB):
-
-	mse, iss, mse_centro, iss_centro,\
-	mse_canny, iss_canny, mse_canny_centro, iss_canny_centro,\
-	mse_skeleton, iss_skeleton, mse_skeleton_centro, iss_skeleton_centro = extract_stats(imgA, imgB)
-
-	"""
-	super_score3
-	(Intercept)          -3.9202
-	ISS                   0.8420
-	ISS_centro            5.8454
-	MSE_canny            -1.7802
-	ISS_canny             3.0313
-	MSE_canny_centro     17.6900
-	ISS_canny_centro      7.0150
-	MSE_skeleton        -12.2337
-	ISS_skeleton         -4.2933
-	MSE_skeleton_centro  -5.2991
-	ISS_skeleton_centro  -1.5924
-
-	super_score3...2
-	Class 1 :
-	2.98 +
-	[MSE] * 0    +
-	[MSE_centro] * 0    +
-	[ISS_centro] * -0.64 +
-	[MSE_canny] * -6.92 +
-	[ISS_canny] * -2.57 +
-	[MSE_canny_centro] * 9.99 +
-	[ISS_canny_centro] * 3.01 +
-	[ISS_skeleton] * -0.78 +
-	[MSE_skeleton_centro] * 2.86 +
-	[ISS_skeleton_centro] * -0.83
-	"""
+	mse, iss, mse_centro, iss_centro, \
+	mse_canny, iss_canny, mse_canny_centro, iss_canny_centro, \
+	mse_skeleton, iss_skeleton, mse_skeleton_centro, iss_skeleton_centro, \
+	imgA_mean, imgB_mean, imgA_var, imgB_var, \
+	imgA_entropy, imgB_entropy = extract_stats(imgA, imgB)
+	#imgA_contraste, imgB_contraste, imgA_angular_momentum, imgB_angular_momentum, \
 
 	f = (2.98 -0.64*iss_centro - 6.92*mse_canny -2.57*iss_canny
 		+ 9.99*mse_canny_centro +3.01*iss_canny_centro
@@ -322,10 +341,12 @@ def super_score3(imgA, imgB):
 	return score # a funcao retorna um score em formato numerico de 0 a 100.
 
 def super_score4(imgA, imgB):
-
-	mse, iss, mse_centro, iss_centro,\
-	mse_canny, iss_canny, mse_canny_centro, iss_canny_centro,\
-	mse_skeleton, iss_skeleton, mse_skeleton_centro, iss_skeleton_centro = extract_stats(imgA, imgB)
+	mse, iss, mse_centro, iss_centro, \
+	mse_canny, iss_canny, mse_canny_centro, iss_canny_centro, \
+	mse_skeleton, iss_skeleton, mse_skeleton_centro, iss_skeleton_centro, \
+	imgA_mean, imgB_mean, imgA_var, imgB_var, \
+	imgA_entropy, imgB_entropy = extract_stats(imgA, imgB)
+	#imgA_contraste, imgB_contraste, imgA_angular_momentum, imgB_angular_momentum, \
 
 	log_odds = (2.960e+00 + 1.203e-04 * (mse) -1.915e-04 * (mse_centro)
 				-2.153e+00 * (iss) -4.615e+00*(iss_centro)
@@ -338,10 +359,12 @@ def super_score4(imgA, imgB):
 	return score # a funcao retorna um score em formato numerico de 0 a 100.
 
 def super_score5(imgA, imgB):
-
-	mse, iss, mse_centro, iss_centro,\
-	mse_canny, iss_canny, mse_canny_centro, iss_canny_centro,\
-	mse_skeleton, iss_skeleton, mse_skeleton_centro, iss_skeleton_centro = extract_stats(imgA, imgB)
+	mse, iss, mse_centro, iss_centro, \
+	mse_canny, iss_canny, mse_canny_centro, iss_canny_centro, \
+	mse_skeleton, iss_skeleton, mse_skeleton_centro, iss_skeleton_centro, \
+	imgA_mean, imgB_mean, imgA_var, imgB_var, \
+	imgA_entropy, imgB_entropy = extract_stats(imgA, imgB)
+	#imgA_contraste, imgB_contraste, imgA_angular_momentum, imgB_angular_momentum, \
 
 	log_odds = (3.099e+00 + 4.057e-05 * (mse) -1.209e-04 * (mse_centro) -2.237e+00 * (iss)
 				-1.879e+00*(iss_centro) -1.695e+00 * (iss_canny) + 1.167e+01 * (mse_canny_centro) + 2.626e+00* (iss_canny_centro)
@@ -353,15 +376,10 @@ def super_score5(imgA, imgB):
 
 # função de busca de letra que dá o melhor matching
 def busca_melhor(imgA, v, i, log):
-
 	_, letters_dict = ler_letras("../letras.csv")
-
 	score_ini = 0
-
 	for i in letters_dict:
-
 		imgB = skio.imread("../" + i)
-
 		if v == 1:
 			score = super_score(imgA, imgB)
 		elif v == 2:
@@ -384,7 +402,6 @@ def busca_melhor(imgA, v, i, log):
 
 
 def quebra_captcha(captcha, v, log = False):
-
 	a = crop_char(captcha, 0)
 	b = crop_char(captcha, 1)
 	c = crop_char(captcha, 2)
@@ -401,7 +418,6 @@ def quebra_captcha(captcha, v, log = False):
 
 
 def modela_captcha(captcha, tipo = ""):
-
 	_, letters_dict = ler_letras("../letras.csv")
 	a = crop_char(captcha, 0)
 	b = crop_char(captcha, 1)
@@ -411,36 +427,47 @@ def modela_captcha(captcha, tipo = ""):
 	f = crop_char(captcha, 5)
 
 	resposta = ""
-
 	clf = joblib.load('classifier_' + tipo + '.pkl')
+	if ( tipo != "image" ):
+		for imgA in [a, b, c, d, e, f]:
+			dic = {}
+			for base in letters_dict:
 
-	for imgA in [a, b, c, d, e, f]:
-		dic = {}
-		for base in letters_dict:
+				imgB = skio.imread(base)
 
-			imgB = skio.imread("../" + base)
+				mse, iss, mse_centro, iss_centro, \
+				mse_canny, iss_canny, mse_canny_centro, iss_canny_centro, \
+				mse_skeleton, iss_skeleton, mse_skeleton_centro, iss_skeleton_centro, \
+				imgA_mean, imgB_mean, imgA_var, imgB_var, \
+				imgA_entropy, imgB_entropy = extract_stats(imgA, imgB)
+				#imgA_contraste, imgB_contraste, imgA_angular_momentum, imgB_angular_momentum, \
 
-			mse, iss, mse_centro, iss_centro, mse_canny, iss_canny, mse_canny_centro, iss_canny_centro,\
-			mse_skeleton, iss_skeleton, mse_skeleton_centro, iss_skeleton_centro = extract_stats(imgA, imgB)
+				if ( clf.predict([ [mse, iss, mse_centro, iss_centro, \
+				mse_canny, iss_canny, mse_canny_centro, iss_canny_centro, \
+				mse_skeleton, iss_skeleton, mse_skeleton_centro, iss_skeleton_centro, \
+				imgA_mean, imgB_mean, imgA_var, imgB_var, \
+				#imgA_contraste, imgB_contraste, \
+				#imgA_angular_momentum, imgB_angular_momentum, \
+				imgA_entropy, imgB_entropy] ]) ):
 
-			if ( clf.predict( [[mse, iss, mse_centro, iss_centro, mse_canny, iss_canny,
-			mse_canny_centro, iss_canny_centro, mse_skeleton, iss_skeleton, mse_skeleton_centro, iss_skeleton_centro]] ) ):
+					if (letters_dict[base]['rotulo'] in dic):
+						dic[ letters_dict[base]['rotulo'] ] += 1
+					else:
+						dic[ letters_dict[base]['rotulo'] ] = 1
 
-				if (letters_dict[base]['rotulo'] in dic):
-					dic[ letters_dict[base]['rotulo'] ] += 1
-				else:
-					dic[ letters_dict[base]['rotulo'] ] = 1
+			if (dic):
+				melhor = max(dic.items(), key=operator.itemgetter(1))[0]
+				resposta = resposta + melhor
+			else:
+				resposta = resposta + " "
 
-		if (dic):
-			melhor = max(dic.items(), key=operator.itemgetter(1))[0]
-			resposta = resposta + melhor
-		else:
-			resposta = resposta + " "
-
-	return resposta
+		return resposta
+	else :
+		for imgA in [a, b, c, d, e, f]:
+			resposta = resposta + str(clf.predict([item for sublist in imgA.tolist() for item in sublist]))
+		return resposta
 
 def tsrct_captcha(captcha):
-
 	_, letters_dict = ler_letras("../letras.csv")
 	a = crop_char(captcha, 0)
 	b = crop_char(captcha, 1)
@@ -450,7 +477,6 @@ def tsrct_captcha(captcha):
 	f = crop_char(captcha, 5)
 
 	resposta = ""
-
 	for letra in [a, b, c, d, e, f]:
 
 		img = Image.fromarray( letra )
