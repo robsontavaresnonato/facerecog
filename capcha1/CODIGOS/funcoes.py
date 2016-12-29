@@ -186,6 +186,7 @@ def remove_small_blobs(bw_img, min_area=35, **label_kwargs):
 			new_bw[labels == roi.label] = fg
 
 	return new_bw
+
 def entropy(signal):
         '''
         function returns entropy of a signal
@@ -243,9 +244,9 @@ def save_combinations(permutes, dic, arquivo = "../combinacoes.txt"):
 	""" Função que recebe um conjunto de combinações de arquivos e um dicionário com os rótulos.
 	O retorno desta função é a criação de um arquivo com as análises de combinações dos arquivos."""
 	with open(arquivo, 'w+') as f:
-		f.write("resposta,char1,char2,MSE,ISS,MSE_centro,ISS_centro,"+\
-		"MSE_canny,ISS_canny,MSE_canny_centro,ISS_canny_centro,"+\
-		"MSE_skeleton,ISS_skeleton,MSE_skeleton_centro,ISS_skeleton_centro,"+\
+		f.write("resposta,char1,char2,mse,iss,mse_centro,iss_centro,"+\
+		"mse_canny,iss_canny,mse_canny_centro,iss_canny_centro,"+\
+		"mse_skeleton,iss_skeleton,mse_skeleton_centro,iss_skeleton_centro,"+\
 		"imgA_mean,imgB_mean,imgA_var,imgB_var,"+\
 		#"imgA_contraste,imgB_contraste,imgA_angular_momentum,imgB_angular_momentum,"+\
 		"imgA_entropy,imgB_entropy\n")
