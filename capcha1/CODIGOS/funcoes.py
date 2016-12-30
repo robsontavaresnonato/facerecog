@@ -291,40 +291,7 @@ def run_tesseract(imgs):
 
 # Novas funções
 #  função de scoragem:
-def super_score(imgA, imgB):
-	mse, iss, mse_centro, iss_centro, _, _, _, _, _, _, _, _ = extract_stats(imgA, imgB)
-
-	f =  5.979 -3.201e-05*(mse)  -2.752*(iss) -4.587e-05*(mse_centro)
-	prop = exp(f)/(exp(f) + 1)
-	score = prop*100
-
-	return score # a funcao retorna um score em formato numerico de 0 a 100.
-
-def super_score2(imgA, imgB):
-	# Codigo de Categorização das Variáveis contínuas
-	mse, iss, mse_centro, iss_centro, _, _, _, _, _, _, _, _ = extract_stats(imgA, imgB)
-
-	if (iss_centro > 0 and iss_centro <= 0.20468457663):
-		CAT_ISS_centro = 0
-	elif (iss_centro > 0.20468457663 and iss_centro <= 0.34859473007):
-		CAT_ISS_centro = -8.073e-01
-	elif (iss_centro > 0.34859473007 and iss_centro <= 0.384041534944):
-		CAT_ISS_centro = -2.944e-01
-	elif (iss_centro > 0.384041534944 and iss_centro <= 0.444163127529):
-		CAT_ISS_centro = 8.699e-02
-	elif (iss_centro > 0.444163127529):
-		CAT_ISS_centro = 1.506e+00
-	else:
-		CAT_ISS_centro = 0
-
-	f = (7.956e+00 -2.649e-05*(mse)  -2.067e+00*(iss) -4.498e-05*(mse_centro)
-		-4.587e+00*(iss_centro) + CAT_ISS_centro)
-	prop = exp(f)/(exp(f) + 1)
-	score = prop*100
-
-	return score # a funcao retorna um score em formato numerico de 0 a 100.
-
-def super_score3(imgA, imgB):
+def super_score(imgA, imgB, v):
 	mse, iss, mse_centro, iss_centro, \
 	mse_canny, iss_canny, mse_canny_centro, iss_canny_centro, \
 	mse_skeleton, iss_skeleton, mse_skeleton_centro, iss_skeleton_centro, \
@@ -332,48 +299,54 @@ def super_score3(imgA, imgB):
 	imgA_entropy, imgB_entropy = extract_stats(imgA, imgB)
 	#imgA_contraste, imgB_contraste, imgA_angular_momentum, imgB_angular_momentum, \
 
-	f = (2.98 -0.64*iss_centro - 6.92*mse_canny -2.57*iss_canny
-		+ 9.99*mse_canny_centro +3.01*iss_canny_centro
-		-0.78*iss_skeleton +2.86*mse_skeleton_centro
-		-0.83*iss_skeleton_centro)
+	if (v == 1):
+		f =  5.979 -3.201e-05*(mse)  -2.752*(iss) -4.587e-05*(mse_centro)
+
+	elif(v == 2):
+		if (iss_centro > 0 and iss_centro <= 0.20468457663):
+			CAT_ISS_centro = 0
+		elif (iss_centro > 0.20468457663 and iss_centro <= 0.34859473007):
+			CAT_ISS_centro = -8.073e-01
+		elif (iss_centro > 0.34859473007 and iss_centro <= 0.384041534944):
+			CAT_ISS_centro = -2.944e-01
+		elif (iss_centro > 0.384041534944 and iss_centro <= 0.444163127529):
+			CAT_ISS_centro = 8.699e-02
+		elif (iss_centro > 0.444163127529):
+			CAT_ISS_centro = 1.506e+00
+		else:
+			CAT_ISS_centro = 0
+		f = (7.956e+00 -2.649e-05*(mse)  -2.067e+00*(iss) -4.498e-05*(mse_centro)
+			-4.587e+00*(iss_centro) + CAT_ISS_centro)
+
+	elif(v == 3):
+		f = (2.98 -0.64*iss_centro - 6.92*mse_canny -2.57*iss_canny
+			+ 9.99*mse_canny_centro +3.01*iss_canny_centro
+			-0.78*iss_skeleton +2.86*mse_skeleton_centro
+			-0.83*iss_skeleton_centro)
+
+	elif(v == 4):
+		f = (2.960e+00 + 1.203e-04 * (mse) -1.915e-04 * (mse_centro)
+					-2.153e+00 * (iss) -4.615e+00*(iss_centro)
+					+ 3.612e+00 * (mse_canny) + 2.380e+00 * (iss_canny)
+					+ 2.618e+00 * (iss_canny_centro) -4.454e+01 * (mse_skeleton)
+					-1.958e+00*(iss_skeleton) + 5.035e+01*(mse_skeleton_centro) + 4.036e+00*(iss_skeleton_centro ))
+
+	elif(v == 5):
+		f = (3.099e+00 + 4.057e-05 * (mse) -1.209e-04 * (mse_centro) -2.237e+00 * (iss)
+					-1.879e+00*(iss_centro) -1.695e+00 * (iss_canny) + 1.167e+01 * (mse_canny_centro) + 2.626e+00* (iss_canny_centro)
+					-2.132e+01 * (mse_skeleton) + 3.390e+00*(iss_skeleton) + 2.387e+01*(mse_skeleton_centro) -1.636e+00 *(iss_skeleton_centro ))
+
+	elif(v == 6):
+		var2 = (mediaA - mediaB)^2
+		f = (-3.001e+00 + 1.046e-03*mse - 1.046e-03*mse_centro + 1.216e+01*iss - 1.476e+01*iss_centro
+		+ 2.173e+01*mse_canny + 1.550e+01*iss_canny + 3.034e+00*mse_canny_centro - 1.618e+02*mse_skeleton
+		- 2.826e+01*iss_skeleton + 1.093e+02*mse_skeleton_centro + 2.115e+01*iss_skeleton_centro
+		+ 1.003e+02*imgA_mean + 5.918e+01*imgB_mean - 9.723e+01*imgA_var - 4.455e+01*imgB_var
+		- 4.463e+01*var2)
 	prop = exp(f)/(exp(f) + 1)
 	score = prop*100
-
 	return score # a funcao retorna um score em formato numerico de 0 a 100.
 
-def super_score4(imgA, imgB):
-	mse, iss, mse_centro, iss_centro, \
-	mse_canny, iss_canny, mse_canny_centro, iss_canny_centro, \
-	mse_skeleton, iss_skeleton, mse_skeleton_centro, iss_skeleton_centro, \
-	imgA_mean, imgB_mean, imgA_var, imgB_var, \
-	imgA_entropy, imgB_entropy = extract_stats(imgA, imgB)
-	#imgA_contraste, imgB_contraste, imgA_angular_momentum, imgB_angular_momentum, \
-
-	log_odds = (2.960e+00 + 1.203e-04 * (mse) -1.915e-04 * (mse_centro)
-				-2.153e+00 * (iss) -4.615e+00*(iss_centro)
-				+ 3.612e+00 * (mse_canny) + 2.380e+00 * (iss_canny)
-				+ 2.618e+00 * (iss_canny_centro) -4.454e+01 * (mse_skeleton)
-				-1.958e+00*(iss_skeleton) + 5.035e+01*(mse_skeleton_centro) + 4.036e+00*(iss_skeleton_centro ))
-
-	score = 100 *( exp(log_odds)/(1+exp(log_odds)))
-
-	return score # a funcao retorna um score em formato numerico de 0 a 100.
-
-def super_score5(imgA, imgB):
-	mse, iss, mse_centro, iss_centro, \
-	mse_canny, iss_canny, mse_canny_centro, iss_canny_centro, \
-	mse_skeleton, iss_skeleton, mse_skeleton_centro, iss_skeleton_centro, \
-	imgA_mean, imgB_mean, imgA_var, imgB_var, \
-	imgA_entropy, imgB_entropy = extract_stats(imgA, imgB)
-	#imgA_contraste, imgB_contraste, imgA_angular_momentum, imgB_angular_momentum, \
-
-	log_odds = (3.099e+00 + 4.057e-05 * (mse) -1.209e-04 * (mse_centro) -2.237e+00 * (iss)
-				-1.879e+00*(iss_centro) -1.695e+00 * (iss_canny) + 1.167e+01 * (mse_canny_centro) + 2.626e+00* (iss_canny_centro)
-				-2.132e+01 * (mse_skeleton) + 3.390e+00*(iss_skeleton) + 2.387e+01*(mse_skeleton_centro) -1.636e+00 *(iss_skeleton_centro ))
-
-	score = 100 *( exp(log_odds)/(1+exp(log_odds)))
-
-	return score # a funcao retorna um score em formato numerico de 0 a 100.
 
 # função de busca de letra que dá o melhor matching
 def busca_melhor(imgA, v, i, log):
@@ -381,18 +354,10 @@ def busca_melhor(imgA, v, i, log):
 	score_ini = 0
 	for i in letters_dict:
 		imgB = skio.imread("../" + i)
-		if v == 1:
-			score = super_score(imgA, imgB)
-		elif v == 2:
-			score = super_score2(imgA, imgB)
-		elif v == 3:
-			score = super_score3(imgA, imgB)
-		elif v == 4:
-			score = super_score4(imgA, imgB)
-		elif v == 5:
-			score = super_score5(imgA, imgB)
+		if v in [1,2,3,4,5,6]:
+			score = super_score(imgA, imgB, v)
 		else:
-			print("v deve estar no intervalo [1, 4].")
+			print("v deve estar no intervalo [1, 6].")
 			break
 		if score > score_ini: # then letra_oficial=dicionario[i]
 			rotulo_letra_maior_score = str(letters_dict[i]['rotulo'])
