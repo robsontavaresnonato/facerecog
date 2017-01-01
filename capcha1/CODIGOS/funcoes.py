@@ -337,7 +337,7 @@ def super_score(imgA, imgB, v):
 					-2.132e+01 * (mse_skeleton) + 3.390e+00*(iss_skeleton) + 2.387e+01*(mse_skeleton_centro) -1.636e+00 *(iss_skeleton_centro ))
 
 	elif(v == 6):
-		var2 = (mediaA - mediaB)^2
+		var2 = (imgA_mean - imgB_mean)**2
 		f = (-3.001e+00 + 1.046e-03*mse - 1.046e-03*mse_centro + 1.216e+01*iss - 1.476e+01*iss_centro
 		+ 2.173e+01*mse_canny + 1.550e+01*iss_canny + 3.034e+00*mse_canny_centro - 1.618e+02*mse_skeleton
 		- 2.826e+01*iss_skeleton + 1.093e+02*mse_skeleton_centro + 2.115e+01*iss_skeleton_centro
@@ -353,7 +353,7 @@ def busca_melhor(imgA, v, i, log):
 	_, letters_dict = ler_letras("../letras.csv")
 	score_ini = 0
 	for i in letters_dict:
-		imgB = skio.imread("../" + i)
+		imgB = skio.imread(i)
 		if v in [1,2,3,4,5,6]:
 			score = super_score(imgA, imgB, v)
 		else:
