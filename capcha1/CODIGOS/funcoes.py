@@ -38,13 +38,15 @@ from sklearn.externals import joblib
 
 def apply_filter(img, v = 1):
 	if v == 1:
-		return remove_small_blobs(img, background=255)
+		return remove_small_blobs(img[ : , : , 0], background=255)
 	elif v == 2:
 		selem = disk(1.4)
 		dilatado = dilation(remove_small_blobs(img[ : , : , 0], background=255, min_area=10), selem)
-		unblobbed2 = remove_small_blobs(erosion(dilatado, selem), background=255, min_area=25)
+		unblobbed2 = remove_small_blobs(erosion(dilatado, selem), background=255, min_area=15)
 		return rank.mean(unblobbed2, selem=selem)
-	else: # 3
+	elif v == 3:
+		return remove_small_blobs(img[ : , : , 0] < 255*0.5, background=255)
+	else:
 		pass
 
 # Funções de comparação entre imagens
@@ -188,16 +190,16 @@ def remove_small_blobs(bw_img, min_area=35, **label_kwargs):
 	return new_bw
 
 def entropy(signal):
-        '''
-        function returns entropy of a signal
-        signal must be a 1-D numpy array
-        '''
-        lensig=len(signal)#.size
-        symset=list(set(signal))
-        numsym=len(symset)
-        propab=[np.size(signal[signal==i])/(1.0*lensig) for i in symset]
-        ent=np.sum([p*np.log2(1.0/p) for p in propab])
-        return ent
+		'''
+		function returns entropy of a signal
+		signal must be a 1-D numpy array
+		'''
+		lensig=len(signal)#.size
+		symset=list(set(signal))
+		numsym=len(symset)
+		propab=[np.size(signal[signal==i])/(1.0*lensig) for i in symset]
+		ent=np.sum([p*np.log2(1.0/p) for p in propab])
+		return ent
 
 def extract_stats(imgA, imgB, sigma = 1):
 	imgA = remove_small_blobs(imgA, background = 255)
@@ -430,7 +432,7 @@ def modela_captcha(captcha, tipo = ""):
 		return resposta
 	else :
 		for imgA in [a, b, c, d, e, f]:
-			resposta = resposta + str(clf.predict([item for sublist in imgA.tolist() for item in sublist]))
+			resposta = resposta + str(clf.predict([item for sublist in imgA.tolist() for item in sublist])[0])
 		return resposta
 
 def tsrct_captcha(captcha):
