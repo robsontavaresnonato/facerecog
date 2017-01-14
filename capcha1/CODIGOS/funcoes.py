@@ -45,7 +45,9 @@ def apply_filter(img, v = 1):
 		unblobbed2 = remove_small_blobs(erosion(dilatado, selem), background=255, min_area=15)
 		return rank.mean(unblobbed2, selem=selem)
 	elif v == 3:
-		return remove_small_blobs(img[ : , : , 0] < 255*0.5, background=255)
+		unblobbed = remove_small_blobs(img[ : , : , 0], background=255)
+		selem = disk(1.4)
+		return remove_small_blobs(dilation(unblobbed, selem), background=255, min_area=10)
 	else:
 		pass
 
