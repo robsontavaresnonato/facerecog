@@ -35,6 +35,7 @@ from skimage.morphology import disk
 
 # pacotes de suporte para ML
 from sklearn.externals import joblib
+from sklearn import decomposition
 
 def apply_filter(img, v = 1):
 	if v == 1:
@@ -434,7 +435,8 @@ def modela_captcha(captcha, tipo = ""):
 		return resposta
 	else :
 		for imgA in [a, b, c, d, e, f]:
-			resposta = resposta + str(clf.predict([item for sublist in imgA.tolist() for item in sublist])[0])
+			vetor_imagem = [item for sublist in imgA.tolist() for item in sublist]
+			resposta = resposta + str(clf.predict(vetor_imagem)[0])
 		return resposta
 
 def tsrct_captcha(captcha):
