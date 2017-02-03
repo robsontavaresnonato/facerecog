@@ -442,8 +442,8 @@ def modela_captcha(captcha, tipo = "", feat_transform = 'lbp'):
 				vetor_imagem = [item for sublist in imgA.tolist() for item in sublist]
 
 			if feat_transform == 'pca':
-			    trans = joblib.load('pca_image.pkl')
-			    vetor_imagem = trans.transform(vetor_imagem)
+			    pca = joblib.load('pca_image.pkl')
+			    vetor_imagem = pca.transform(vetor_imagem)
 
 			elif feat_transform == 'lbp':
 			    # settings for LBP
