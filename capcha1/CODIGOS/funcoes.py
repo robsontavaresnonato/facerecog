@@ -32,13 +32,16 @@ from skimage.measure import compare_ssim, compare_mse
 from sklearn.preprocessing import binarize
 from skimage.morphology import dilation, erosion
 from skimage.morphology import disk
+from skimage.feature import local_binary_pattern
 
 # pacotes de suporte para ML
 from sklearn.externals import joblib
-from sklearn import decomposition
+from sklearn.decomposition import PCA
 
 def apply_filter(img, v = 1):
-	if v == 1:
+	if v == 0:
+		return img[ : , : , 0]
+	elif v == 1:
 		return remove_small_blobs(img[ : , : , 0], background=255)
 	elif v == 2:
 		selem = disk(1.4)
@@ -388,7 +391,7 @@ def quebra_captcha(captcha, v, log = False):
 	return resposta
 
 
-def modela_captcha(captcha, tipo = ""):
+def modela_captcha(captcha, tipo = "", feat_transform = 'lbp'):
 	_, letters_dict = ler_letras("../letras.csv")
 	a = crop_char(captcha, 0)
 	b = crop_char(captcha, 1)
@@ -435,7 +438,21 @@ def modela_captcha(captcha, tipo = ""):
 		return resposta
 	else :
 		for imgA in [a, b, c, d, e, f]:
-			vetor_imagem = [item for sublist in imgA.tolist() for item in sublist]
+			if feat_transform != 'lbp':
+				vetor_imagem = [item for sublist in imgA.tolist() for item in sublist]
+
+			if feat_transform == 'pca':
+			    trans = joblib.load('pca_image.pkl')
+			    vetor_imagem = trans.transform(vetor_imagem)
+
+			elif feat_transform == 'lbp':
+			    # settings for LBP
+				METHOD = 'uniform'
+				radius = 3
+				n_points = 8 * radius
+				imgA_lbp = local_binary_pattern(imgA, n_points, radius, METHOD)
+				vetor_imagem = [item for sublist in imgA_lbp.tolist() for item in sublist]
+
 			resposta = resposta + str(clf.predict(vetor_imagem)[0])
 		return resposta
 
